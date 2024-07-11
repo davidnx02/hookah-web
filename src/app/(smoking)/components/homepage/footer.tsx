@@ -1,23 +1,24 @@
+import Image from "next/image";
+import Link from "next/link";
+
 import { fetchAPI } from "@/lib/api";
 import { getStrapiUrl } from "@/lib/get-strapi-url";
 import { TGeneral, TNavigation } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
 
 export async function Footer() {
   const general = (await fetchAPI("general?populate=*")) as TGeneral;
   const navigation = (await fetchAPI("navigation?populate=*")) as TNavigation;
 
   return (
-    <footer className={cn("custom-section", "bg-[#050505] py-12 sm:pt-16 sm:pb-24")}>
+    <footer className={cn("custom-section", "bg-[#050505] pb-16 pt-12 sm:pt-16 sm:pb-24")}>
       <div
         className={cn(
           "custom-container",
-          "flex items-center justify-center gap-16 flex-col"
+          "flex items-center justify-center gap-8 sm:gap-16 flex-col"
         )}
       >
-        <div className="flex items-center justify-between w-full">
+        <div className="flex items-center justify-center sm:justify-between w-full">
           <Image
             src={getStrapiUrl(general?.logo?.data?.attributes?.url)}
             height={0}
@@ -26,7 +27,7 @@ export async function Footer() {
             sizes="(max-width: 768px) 64px, 100px"
             className="w-16 h-16 md:w-24 md:h-24"
           />
-          <div className="flex items-center justify-end gap-10">
+          <div className="hidden sm:flex items-center justify-end gap-10">
             {navigation?.links?.map((link) => (
               <Link
                 key={link.url}

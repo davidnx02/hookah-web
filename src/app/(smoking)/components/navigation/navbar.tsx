@@ -27,14 +27,19 @@ export async function NavBar() {
       <div
         className={cn("custom-container", "flex items-center justify-between")}
       >
-        <Image
-          src={getStrapiUrl(general?.logo?.data?.attributes?.url)}
-          height={0}
-          width={0}
-          alt={"Smoking Hookah"}
-          sizes="(max-width: 768px) 64px, 100px"
-          className="w-16 h-16 md:w-20 md:h-20"
-        />
+        <Link
+          prefetch={false}
+          href={"/"}
+          className="w-16 h-16 md:w-20 md:h-20 relative"
+        >
+          <Image
+            src={getStrapiUrl(general?.logo?.data?.attributes?.url)}
+            fill
+            alt={"Smoking Hookah"}
+            sizes="(max-width: 768px) 64px, 100px"
+          />
+        </Link>
+
         <div className="hidden md:flex items-center justify-end gap-8 lg:gap-16">
           <ul className="flex items-center justify-end gap-6 lg:gap-12">
             {navigation?.links?.map((link) => (
