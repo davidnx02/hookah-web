@@ -31,7 +31,7 @@ export async function Hero() {
             }}
           />
           <p className="text-[#d9d9d9] font-medium max-w-[650px] w-full text-sm sm:text-base lg:text-lg">
-            {hero.description}
+            {hero.background.data.attributes.url}
           </p>
         </div>
         <Button
@@ -50,7 +50,7 @@ export async function Hero() {
       </div>
       <div className="w-full h-full absolute inset-0 bg-black/50 z-[2]" />
       <Image
-        src={getStrapiUrl(hero.background.data.attributes.url)}
+        src={hero.background.data.attributes.url}
         alt="Degustation Lounge Smoking Hookah"
         fill
         style={{ objectFit: "cover", objectPosition: "center" }}
