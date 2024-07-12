@@ -16,7 +16,7 @@ export async function AboutUs() {
       <div
         className={cn(
           "custom-container",
-          "flex items-center justify-center md:justify-between gap-16 md:gap-8 lg:gap-16"
+          "flex items-center justify-center md:justify-between gap-16 md:gap-8 lg:gap-16 flex-col md:flex-row"
         )}
       >
         <div className="max-w-[576px] w-full h-[540px] sm:h-[600px] md:h-[450px] lg:h-[700px] xl:h-[900px] relative">

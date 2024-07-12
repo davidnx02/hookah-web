@@ -31,7 +31,7 @@ export async function Hero() {
             }}
           />
           <p className="text-[#d9d9d9] font-medium max-w-[650px] w-full text-sm sm:text-base lg:text-lg">
-            {hero.background.data.attributes.url}
+            {hero.description}
           </p>
         </div>
         <Button
