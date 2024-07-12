@@ -18,7 +18,7 @@ export async function ContactBanner() {
       <Link
         prefetch={false}
         target="_blank"
-        href={general.phone}
+        href={`tel:${general.phone}`}
         className="text-xs sm:text-sm font-medium underline"
       >
         Rezervácia {general.phone}
