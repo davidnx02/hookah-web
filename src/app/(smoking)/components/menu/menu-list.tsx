@@ -45,7 +45,7 @@ export const MenuList = ({ categories }: { categories: TCategory[] }) => {
       <section
         className={cn(
           "custom-section",
-          "pt-12 mb-24 gap-12",
+          "pt-12 sm:mb-24 gap-12",
           "menu-list__section"
         )}
       >
@@ -56,7 +56,7 @@ export const MenuList = ({ categories }: { categories: TCategory[] }) => {
           defaultValue={activeTab}
           onValueChange={(value) => setActiveTab(value)}
           value={activeTab}
-          className="w-full max-w-[705px] hidden sm:flex flex-col items-center justify-center gap-12"
+          className="w-full max-w-[900px] hidden sm:flex flex-col items-center justify-center gap-12"
         >
           <TabsList className="w-full flex items-center justify-center flex-wrap gap-4 h-fit p-0 bg-transparent">
             {categories.map((category) => (
@@ -81,47 +81,54 @@ export const MenuList = ({ categories }: { categories: TCategory[] }) => {
             {data && (
               <MenuContentContainer>
                 {data.data.map((item: TItem) => (
-                  <MenuItem item={item} key={item.attributes.name} />
+                  <>
+                    <MenuItem item={item} key={item.attributes.name} />
+                    <div className={cn("w-full h-[1px] bg-white/10 block")} />
+                  </>
                 ))}
               </MenuContentContainer>
             )}
           </TabsContent>
         </Tabs>
-        <div className="w-full flex flex-col items-center justify-center gap-8 sm:hidden">
+        <div className="w-full flex flex-col items-center justify-center gap-12 sm:hidden">
           <Select
             defaultValue={activeTab}
             value={activeTab}
             onValueChange={(value) => setActiveTab(value)}
           >
             <div className="w-full h-fit px-6 flex items-center justify-center">
-            <SelectTrigger
-              className={cn(
-                "menu-list__select-trigger",
-                "bg-transparent rounded-none items-center justify-center flex relative py-3 h-fit text-white text-center text-xl font-bold focus:outline-none focus:border-none"
-              )}
-            >
-              <SelectValue placeholder={activeTab} className="" />
-              <SelectContent className={cn("menu-list__select-content top-2 rounded-none")}>
-                {categories.map((category) => (
-                  <SelectItem
-                    key={category.attributes.name}
-                    value={category.attributes.name}
-                    className={cn("menu-list__select-trigger")}
-                  >
-                    {category.attributes.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </SelectTrigger>
+              <SelectTrigger
+                className={cn(
+                  "menu-list__select-trigger",
+                  "bg-transparent rounded-none items-center justify-center flex relative py-3 h-fit text-white text-center text-xl font-bold focus:outline-none focus:border-none"
+                )}
+              >
+                <SelectValue placeholder={activeTab} className="" />
+                <SelectContent
+                  className={cn("menu-list__select-content top-2 rounded-none")}
+                >
+                  {categories.map((category) => (
+                    <SelectItem
+                      key={category.attributes.name}
+                      value={category.attributes.name}
+                      className={cn("menu-list__select-trigger")}
+                    >
+                      {category.attributes.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </SelectTrigger>
             </div>
-
           </Select>
           {isPending && <p>Loading...</p>}
           {error && <p>Error: {error.message}</p>}
           {data && (
             <MenuContentContainer>
               {data.data.map((item: TItem) => (
-                <MenuItem item={item} key={item.attributes.name} />
+                <>
+                  <MenuItem item={item} key={item.attributes.name} />
+                  <div className={cn("w-full h-[1px] bg-white/10 block")} />
+                </>
               ))}
             </MenuContentContainer>
           )}

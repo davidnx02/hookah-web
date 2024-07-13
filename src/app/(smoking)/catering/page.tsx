@@ -16,7 +16,7 @@ export default async function Page() {
     <>
       <SubpageHeading
         title="Catering"
-        image="/placeholder.png"
+        image="/team.jpg"
         breadcrumbs={{
           name: "Catering",
           url: "catering",
@@ -33,7 +33,7 @@ export default async function Page() {
         <div
           className={cn(
             "custom-container",
-            "flex flex-col items-center justify-center gap-12 mt-16"
+            "flex flex-col items-center justify-center gap-16 lg:gap-12 mt-16"
           )}
         >
           {catering.services.map((service, index) => (

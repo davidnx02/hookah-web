@@ -36,33 +36,44 @@ export const CateringService = ({
     <div
       className={cn(
         "w-full flex flex-col gap-8",
-        index % 2 !== 0 ? "justify-end items-end" : "justify-start"
+        index % 2 !== 0
+          ? "items-start justify-start lg:justify-end lg:items-end"
+          : "justify-start"
       )}
     >
       <div
         className={cn(
-          "w-full flex items-center gap-3 sm:gap-4 lg:gap-6",
-          index % 2 !== 0 ? "flex-row-reverse" : "flex-row"
+          "w-full flex gap-3 sm:gap-4 lg:gap-6 flex-col",
+          index % 2 !== 0
+            ? "lg:flex-row-reverse lg:items-center items-start"
+            : "lg:flex-row lg:items-center items-start"
         )}
       >
         <span className="w-16 h-16 bg-primary flex items-center justify-center text-white text-2xl sm:text-3xl font-bold">
           0{index + 1}
         </span>
-        <h4 className="text-white font-bold text-2xl uppercase">
+        <h4
+          className={cn(
+            "text-white font-bold text-2xl uppercase",
+            index % 2 !== 0 ? "text-left lg:text-right" : "text-left"
+          )}
+        >
           {service.name}
         </h4>
       </div>
       <div
         className={cn(
-          "flex items-center gap-5",
-          index % 2 !== 0 ? "justify-end" : "justify-start"
+          "flex items-start lg:items-center gap-5 flex-col md:flex-row",
+          index % 2 !== 0 ? "justify-start lg:justify-end" : "justify-start"
         )}
       >
         {icons.map((icon, i) => (
           <React.Fragment key={icon.name}>
             <CateringServiceIcon icon={icon} index={i} />
             {i < icons.length - 1 && (
-              <div className={cn("w-[1px] h-[64px] bg-white/30")} />
+              <div
+                className={cn("w-[1px] h-[64px] bg-white/30 hidden md:block")}
+              />
             )}
           </React.Fragment>
         ))}
@@ -70,7 +81,7 @@ export const CateringService = ({
       <p
         className={cn(
           "text-[#d9d9d9] text-sm sm:text-base font-normal max-w-[700px] w-full",
-          index % 2 !== 0 ? "text-right" : "text-left"
+          index % 2 !== 0 ? "text-left lg:text-right" : "text-left"
         )}
       >
         {service.description}

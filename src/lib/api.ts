@@ -2,7 +2,7 @@ interface StrapiObject {
   attributes: {
     [key: string]: any;
   };
-  id: number; // Add an 'id' property to the StrapiObject interface
+  id: number;
 }
 
 interface FetchApiParams {
@@ -16,17 +16,14 @@ const formatStrapiObject = (item: StrapiObject) => {
   return item.attributes;
 };
 
-
-
 export async function fetchAPI(url: string, options?: FetchApiParams) {
   try {
     const params: string[] = [];
 
-    options?.affiliate &&
-      params.push(`filters[affiliate_id]=${options?.affiliate}`);
+    options?.affiliate && params.push(`filters[affiliate_id]=${options?.affiliate}`);
     options?.slug && params.push(`filters[slug]=${options?.slug}`);
     options?.type && params.push(`filters[type]=${options?.type}`);
-    if (options?.populate == "*") {
+    if (options?.populate === "*") {
       options?.populate && params.push(`populate=*`);
     } else {
       options?.populate && params.push(`populate=deep, ${options?.populate}`);
@@ -38,16 +35,19 @@ export async function fetchAPI(url: string, options?: FetchApiParams) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/${url}${
         params.length > 0 ? `?${params.join("&")}` : ""
-      }&${randomQueryParam}`, // Add the random query parameter
+      }&${randomQueryParam}`,
       {
         headers: {
           "Content-Type": "application/json",
-          "Cache-Control": 'no-store',
-        },
+          "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          "Pragma": "no-cache",
+          "Expires": "0",
+          "Surrogate-Control": "no-store"
+        }
       }
     );
 
-    if (res.status != 200) {
+    if (res.status !== 200) {
       throw new Error("Failed request");
     }
 

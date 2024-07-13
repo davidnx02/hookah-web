@@ -7,13 +7,17 @@ export const MenuItem = ({ item }: { item: TItem }) => {
         <p className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl uppercase">
           {item.attributes.name}
         </p>
-        <span className="text-accent py-[5px] px-2 bg-transparent border border-accent text-sm sm:text-base md:text-lg lg:text-xl uppercase font-bold">
-          {item.attributes.price} €
-        </span>
+        {item.attributes.price && (
+          <span className="text-accent py-[5px] px-2 bg-transparent border border-accent text-sm sm:text-base md:text-lg lg:text-xl uppercase font-bold">
+            {item.attributes.price}
+          </span>
+        )}
       </div>
-      <p className="text-xs sm:text-sm text-[#d9d9d9] font-normal">
-        {item.attributes.description}
-      </p>
+      {item.attributes.description && (
+        <p className="text-xs sm:text-sm text-[#d9d9d9] font-normal text-left w-full">
+          {item.attributes.description}
+        </p>
+      )}
     </div>
   );
 };
