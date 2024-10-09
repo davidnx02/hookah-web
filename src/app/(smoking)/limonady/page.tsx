@@ -20,7 +20,7 @@ export default async function Page() {
   return (
     <>
       <SubpageHeading
-        title="LIMONÁDY"
+        title="LIMONÁDY" // "Limonády"
         breadcrumbs={{ name: "Voľba majstra", url: "volba-majstra" }}
         image={"/hookah.jpg"}
       />
