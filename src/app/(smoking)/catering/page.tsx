@@ -1,10 +1,11 @@
+import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 import { SubpageHeading } from "../components/shared/subpage-heading";
 import { Heading } from "../components/shared/heading";
 import { fetchAPI } from "@/lib/api";
 import { TCatering } from "@/lib/types";
 import { CateringService } from "../components/catering/catering-service";
-import Image from "next/image";
 import { getStrapiUrl } from "@/lib/get-strapi-url";
 
 export default async function Page() {

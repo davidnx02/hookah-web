@@ -1,10 +1,11 @@
+import Image from "next/image";
+
 import { fetchAPI } from "@/lib/api";
 import { TMaster } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 import { SubpageHeading } from "../components/shared/subpage-heading";
 import { Heading } from "../components/shared/heading";
-import Image from "next/image";
 import { getStrapiUrl } from "@/lib/get-strapi-url";
 
 type FetchResponse<T> = {

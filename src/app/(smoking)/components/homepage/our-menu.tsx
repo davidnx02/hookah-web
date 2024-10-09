@@ -8,16 +8,18 @@ import { Heading } from "../shared/heading";
 import { getStrapiUrl } from "@/lib/get-strapi-url";
 import { Button } from "@/components/ui/button";
 import { FaAngleRight } from "react-icons/fa";
+import { CoalDesign } from "../shared/coal-design";
 
 export async function OurMenu() {
   const our_menu = (await fetchAPI("our-menu?populate[hookahs][populate][0]=image")) as TOurMenu;
 
   return (
     <section className={cn("custom-section", "pt-24 relative")}>
+      <CoalDesign variant={2} />
       <div
         className={cn(
           "max-w-[1024px] w-full",
-          "flex flex-col items-center justify-center gap-12"
+          "flex flex-col items-center justify-center gap-12 relative z-10"
         )}
       >
         <Heading
