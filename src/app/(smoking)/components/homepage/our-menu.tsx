@@ -21,7 +21,6 @@ export async function OurMenu() {
         )}
       >
         <Heading
-          subtitle={our_menu?.subtitle}
           title={our_menu?.title}
           className={{
             container: "text-center items-center justify-center",

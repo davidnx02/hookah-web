@@ -12,8 +12,6 @@ export async function GridInfo() {
   const general = (await fetchAPI("general?populate=*")) as TGeneral;
   const promotion = (await fetchAPI("promotion?populate[boxes][populate][0]=image")) as TPromotion;
 
-  console.log(promotion);
-
   return (
     <section className="w-full flex flex-col items-center justify-items-center gap-0 mt-24 max-w-[1940px] mx-auto">
       {promotion.boxes.map((box, index) => (
@@ -42,7 +40,6 @@ export async function GridInfo() {
             )}
           >
             <Heading 
-              subtitle={box.subtitle}
               title={box.title}
               className={{
                 container: 'text-center justify-center items-center'

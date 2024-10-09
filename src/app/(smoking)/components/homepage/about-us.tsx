@@ -30,7 +30,7 @@ export async function AboutUs() {
           />
         </div>
         <div className="md:max-w-[643px] w-full flex flex-col items-starts justify-start gap-8">
-          <Heading subtitle={about.subtitle} title={about.title} />
+          <Heading title={about.title} />
           <div
             className={cn("w-full text-[#d9d9d9]", "about-us__description")}
             dangerouslySetInnerHTML={{ __html: about.description }}

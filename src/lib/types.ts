@@ -120,3 +120,20 @@ export type TCatering = {
     }[];
   };
 };
+
+export type TMaster = {
+  attributes: {
+    name: string;
+    description: string;
+    image: TImage;
+  }
+}
+
+export type TLemonade = {
+  attributes: {
+    name: string;
+    description: string;
+    image: TImage;
+  }
+
+}

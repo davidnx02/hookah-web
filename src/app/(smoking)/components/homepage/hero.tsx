@@ -11,7 +11,6 @@ import { getStrapiUrl } from "@/lib/get-strapi-url";
 
 export async function Hero() {
   const hero = (await fetchAPI("hero?populate=*")) as THero;
-  console.log(hero.title);
 
   return (
     <section className={cn("custom-section", "relative pt-[160px] sm:pt-[220px] pb-[200px] sm:pb-[160px]")}>
@@ -23,7 +22,6 @@ export async function Hero() {
       >
         <div className="w-full flex flex-col items-start justify-start gap-8">
           <Heading
-            subtitle={hero.subtitle}
             title={hero.title}
             className={{
               subtitle: 'hero__subtitle',
@@ -50,7 +48,7 @@ export async function Hero() {
       </div>
       <div className="w-full h-full absolute inset-0 bg-black/50 z-[2]" />
       <Image
-        src={hero.background.data.attributes.url}
+        src={getStrapiUrl(hero.background.data.attributes.url)}
         alt="Degustation Lounge Smoking Hookah"
         fill
         style={{ objectFit: "cover", objectPosition: "center" }}

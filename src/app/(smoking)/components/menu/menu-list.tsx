@@ -31,8 +31,6 @@ export const MenuList = ({ categories }: { categories: TCategory[] }) => {
       ).then((res) => res.json()),
   });
 
-  console.log(data);
-
   return (
     <>
       <SubpageHeading

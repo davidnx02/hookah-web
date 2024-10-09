@@ -10,8 +10,6 @@ import { getStrapiUrl } from "@/lib/get-strapi-url";
 export default async function Page() {
   const catering = (await fetchAPI("catering?populate=*")) as TCatering;
 
-  console.log(catering.gallery.data);
-
   return (
     <>
       <SubpageHeading
@@ -24,7 +22,6 @@ export default async function Page() {
       />
       <section className={cn("custom-section")}>
         <Heading
-          subtitle={catering.subtitle}
           title={catering.title}
           className={{
             container: "text-center items-center justify-center mt-16",

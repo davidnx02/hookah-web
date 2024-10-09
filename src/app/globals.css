@@ -97,7 +97,8 @@
     @apply text-primary;
   }
 
-  .about-us__description > p {
+  .about-us__description > p,
+  .master-choice__description > p {
     @apply text-[#d9d9d9] text-base lg:text-lg font-medium !important;
   }
 
