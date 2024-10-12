@@ -11,7 +11,7 @@ export async function generateMetadata() {
   const general = (await fetchAPI("general?populate=*")) as TGeneral;
 
   return {
-    title: 'Smoking Hookah | Exkluzívny Lounge v Trnave',
+    title: 'Smoking Hookah | Menu',
     description: 'Vitajte v Smoking Hookah, prémiovom degustačnom lounge v centre Trnavy. Ponúkame najlepšie vodné fajky, osviežujúce limonády a skvelú atmosféru pre váš relax a zábavu. Navštívte nás a užite si jedinečný zážitok.',
     keywords: [
       'Smoking Hookah',
@@ -28,7 +28,7 @@ export async function generateMetadata() {
       'degustácia vodných fajok'
     ],    
     openGraph: {
-      title: 'Smoking Hookah | Exkluzívny Lounge v Trnave',
+      title: 'Smoking Hookah | Menu',
       description: 'Objavte prémiové vodné fajky a osviežujúce limonády v exkluzívnom Smoking Hookah lounge v centre Trnavy. Doprajte si jedinečný zážitok v štýlovom prostredí, kde sa relax a zábava stretávajú.',
       image: general?.logo?.data?.attributes?.url ?? '',
       url: 'https://hookah.sk'

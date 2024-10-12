@@ -29,12 +29,13 @@ export async function GridInfo() {
               alt={box.subtitle}
               fill
               style={{ objectFit: "cover", objectPosition: "center" }}
-              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 40vw"
+              sizes="100vw"
+              quality={100}
             />
           </div>
           <div
             className={cn(
-              "col-span-1 h-full flex flex-col items-center justify-center gap-6 px-6 xl:px-12 2xl:px-16 py-16 lg:py-0",
+              "col-span-1 h-full flex flex-col items-center justify-center gap-8 px-6 xl:px-12 2xl:px-16 py-16 lg:py-0",
               index % 2 === 0 ? "lg:order-2" : "lg:order-1"
             )}
           >
@@ -44,7 +45,7 @@ export async function GridInfo() {
                 container: 'text-center justify-center items-center'
               }}
             />
-            <p className="text-sm sm:text-base font-medium text-[#d9d9d9] text-center max-w-[800px]">{box.description}</p>
+            <p className="text-sm sm:text-base font-medium text-[#d9d9d9] text-center max-w-[600px]">{box.description}</p>
             <Button asChild>
               <Link prefetch={false} href={box.button_link}>
                 {box.button_label}
