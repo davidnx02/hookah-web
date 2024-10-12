@@ -29,7 +29,9 @@ export async function AboutUs() {
             style={{ objectFit: "contain", objectPosition: "center" }}
             sizes="100vw"
             quality={100}
+            className="relative z-[5] "
           />
+          <div className="w-[75%] h-full absolute top-0 left-1/2 -translate-x-1/2 z-0 border-[10px] border-primary" />
         </div>
         <div className="md:max-w-[643px] w-full flex flex-col items-starts justify-start gap-8">
           <Heading title={about.title} />

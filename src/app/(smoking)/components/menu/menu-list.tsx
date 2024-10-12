@@ -16,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { CoalDesign } from "../shared/coal-design";
 
 export const MenuList = ({ categories }: { categories: TCategory[] }) => {
   const [activeTab, setActiveTab] = useState(categories[0].attributes.name);
@@ -43,10 +44,12 @@ export const MenuList = ({ categories }: { categories: TCategory[] }) => {
       <section
         className={cn(
           "custom-section",
-          "pt-12 sm:mb-24 gap-12",
+          "pt-12 sm:mb-24 gap-12 relative",
           "menu-list__section"
         )}
       >
+        <CoalDesign variant={1}  />
+        <CoalDesign variant={2} className='top-1/2' />
         <h2 className="hidden sm:block text-4xl lg:text-5xl font-bold text-center text-white">
           {activeCategory?.attributes.name}
         </h2>

@@ -19,7 +19,7 @@ export const CoalDesign = ({
           )}
         >
           <div className="relative w-full">
-            <div className="w-[450px] rounded-full aspect-square blur-[320px] bg-[#B52227]/75 absolute -right-0 top-0 z-[5]" />
+            <div className="w-[450px] rounded-full aspect-square blur-[320px] bg-[#B52227]/75 absolute -right-3/4 top-0 z-[5]" />
             <Image
               src={"/uhlik1.png"}
               alt="Uhlik"
@@ -39,7 +39,7 @@ export const CoalDesign = ({
           )}
         >
           <div className="relative w-full">
-            <div className="w-[450px] rounded-full aspect-square blur-[320px] bg-[#B52227]/75 absolute -left-0 top-0 z-[5]" />
+            <div className="w-[450px] rounded-full aspect-square blur-[320px] bg-[#B52227]/75 absolute -left-2/3 top-0 z-[5]" />
             <Image
               src={"/uhliky.png"}
               alt="Uhlik"

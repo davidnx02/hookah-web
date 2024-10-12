@@ -15,7 +15,7 @@ export const NavLink = ({ link }: { link: TNavLink; }) => {
         prefetch={false} 
         href={link.url} 
         className={cn('uppercase text-base font-bold',
-          pathname === link.url ? 'text-primary nav-link--active text-base' : 'text-white text-base'
+          pathname === link.url ? 'text-accent nav-link--active text-base' : 'text-white text-base'
         )}>
         {link.name}
       </Link>

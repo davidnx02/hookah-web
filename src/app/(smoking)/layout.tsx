@@ -23,7 +23,7 @@ export default function RootLayout({
       <html lang="en">
         <body
           className={cn(
-            "bg-[#0E0E0E] relative min-h-screen flex flex-col",
+            "bg-[#0E0E0E] relative min-h-screen flex flex-col w-screen overflow-x-hidden",
             exo.className
           )}
         >

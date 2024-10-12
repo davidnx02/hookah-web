@@ -68,6 +68,10 @@
     }
   }
 
+  html {
+    @apply overflow-x-hidden;
+  }
+
   .custom-section {
     @apply w-full flex flex-col items-center justify-center px-6;
   }
@@ -82,7 +86,7 @@
 
   .nav-link--active::before {
     content: '';
-    @apply absolute -bottom-2.5 left-0 w-full h-0.5 bg-primary;
+    @apply absolute -bottom-2.5 left-0 w-full h-0.5 bg-accent;
   }
 
   .hero__subtitle {
@@ -112,4 +116,30 @@
 
   .menu-list__select-trigger > svg {
     @apply absolute right-6 text-white !important;
+  }
+
+  .mySwiper > .swiper-button-next,
+  .mySwiper > .swiper-button-prev {
+    @apply bg-primary text-white w-12 h-12 !important;
+  }
+
+  .mySwiper > .swiper-button-next::after,
+  .mySwiper > .swiper-button-prev::after {
+    @apply text-sm text-white font-bold !important;
+  }
+
+  .swiper-pagination-bullets {
+    @apply w-full flex items-center justify-center -bottom-8 top-auto left-0 gap-3 !important;
+  }
+
+  .swiper-pagination > span {
+    @apply w-2 h-2 !important;
+  }
+
+  .swiper-pagination > span  {
+    @apply bg-neutral-400;
+  }
+
+  .swiper-pagination > span.swiper-pagination-bullet-active {
+    @apply bg-primary !important;
   }

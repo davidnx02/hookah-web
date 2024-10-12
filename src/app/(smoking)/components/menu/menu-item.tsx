@@ -9,7 +9,7 @@ export const MenuItem = ({ item }: { item: TItem }) => {
         </p>
         {item.attributes.price && (
           <span className="text-accent py-[5px] px-2 bg-transparent border border-accent text-sm sm:text-base md:text-lg lg:text-xl uppercase font-bold">
-            {item.attributes.price}
+            {item.attributes.price}&nbsp;€
           </span>
         )}
       </div>

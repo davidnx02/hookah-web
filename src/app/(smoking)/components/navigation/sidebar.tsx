@@ -26,19 +26,19 @@ export const Sidebar = ({
   return (
     <Sheet>
       <SheetTrigger>
-        <RiMenu3Line size={32} className="text-white" />
+        <RiMenu3Line size={24} className="text-white" />
       </SheetTrigger>
-      <SheetContent className="bg-[#0E0E0E]/25 px-6 border-l border-l-accent w-screen pt-24">
-        <div className="flex flex-col items-center justify-center">
+      <SheetContent className="bg-[#0E0E0E] !px-6 sm:px-6 w-[340px] pt-24 border-none">
+        <div className="flex flex-col items-start justify-start">
           {links.map((link, index) => (
             <SheetClose key={link.url} asChild>
               <Link
                 prefetch={false}
                 href={link.url}
                 className={cn(
-                  "text-white border-b border-b-neutral-100/25 py-6 max-w-[200px] w-full flex items-center justify-center font-bold text-2xl",
-                  index === links.length - 1 && "border-b-0",
-                  pathname === link.url && "text-primary"
+                  "text-white py-2 max-w-[200px] w-full flex items-start justify-start font-normal text-xl",
+
+                  pathname === link.url && "text-accent font-bold"
                 )}
               >
                 {link.name}
@@ -46,7 +46,7 @@ export const Sidebar = ({
             </SheetClose>
           ))}
         </div>
-        <Button asChild className="uppercase mt-8">
+        <Button asChild className="w-full mt-8">
           <Link prefetch={false} href={`tel:${phone}`}>
             Rezervovať teraz
             <MdOutlinePhoneInTalk size={24} className="text-white" />

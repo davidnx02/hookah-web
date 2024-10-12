@@ -22,7 +22,7 @@ export const SubpageHeading = ({
       <div
         className={cn(
           "custom-container",
-          "flex flex-col items-start justify-start gap-2 relative z-[5]"
+          "flex flex-col items-start justify-start gap-2 relative z-[10]"
         )}
       >
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">

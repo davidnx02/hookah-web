@@ -1,12 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { fetchAPI } from "@/lib/api";
-import { TMaster } from "@/lib/types";
+import { TGeneral, TMaster } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 import { SubpageHeading } from "../components/shared/subpage-heading";
 import { Heading } from "../components/shared/heading";
 import { getStrapiUrl } from "@/lib/get-strapi-url";
+import { Button } from "@/components/ui/button";
+import { MdOutlinePhoneInTalk } from "react-icons/md";
+import { CoalDesign } from "../components/shared/coal-design";
 
 type FetchResponse<T> = {
   data: T;
@@ -18,6 +22,8 @@ export default async function Page() {
   );
   const masters = response.data;
 
+  const general = (await fetchAPI("general?populate=*")) as TGeneral;
+
   return (
     <>
       <SubpageHeading
@@ -25,17 +31,21 @@ export default async function Page() {
         breadcrumbs={{ name: "Voľba majstra", url: "volba-majstra" }}
         image={"/hookah.jpg"}
       />
-      <section className={cn("custom-section")}>
+      <section className={cn("custom-section", 'relative')}>
+        <CoalDesign variant={1} />
+        <CoalDesign variant={2} className="top-1/3" />
         <div
           className={cn(
-            "custom-container",
-            "flex flex-col items-center justify-center gap-24 my-12 sm:my-16 lg:my-32"
+            "max-w-[1100px] w-full",
+            "flex flex-col items-center justify-center gap-24 my-12 sm:my-16 lg:my-32 z-10"
           )}
         >
           <div className="w-full text-center flex flex-col items-center justify-center gap-6">
             <Heading title="Výber <span>MAJSTERSKÝCH VODNÝCH</span>" />
             <div
-              className={cn("w-full max-w-[800px] text-center mx-auto about-us__description")}
+              className={cn(
+                "w-full max-w-[800px] text-center mx-auto about-us__description"
+              )}
               dangerouslySetInnerHTML={{
                 __html:
                   "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>",
@@ -62,17 +72,29 @@ export default async function Page() {
                   height={0}
                   width={0}
                   style={{ objectFit: "cover" }}
-                  className="w-full h-[600px] object-cover max-w-[400px] object-center"
+                  className="w-full h-[560px] sm:h-[600px] object-cover max-w-[400px] object-center shadow-[0px_0px_53px_0px_rgba(255,254,250,0.085)]"
                   sizes="400px"
                 />
                 <div className="w-full flex flex-col items-start justify-start gap-8">
-                  <Heading title={master.attributes.name} />
+                  <Heading
+                    title={master.attributes.name}
+                    className={{ title: "text-accent" }}
+                  />
                   <div
                     className={cn("w-full master-choice__description")}
                     dangerouslySetInnerHTML={{
                       __html: `<p>${master.attributes.description}</p>`,
                     }}
                   />
+                  <Button asChild>
+                    <Link
+                      prefetch={false}
+                      target="_blank"
+                      href={`tel:${general.phone}`}
+                    >
+                      Rezervovať si vodnú <MdOutlinePhoneInTalk size={20} />
+                    </Link>
+                  </Button>
                 </div>
               </div>
             ))}

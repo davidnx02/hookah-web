@@ -68,7 +68,7 @@ const HookahCard = ({ hookah }: { hookah: THookah }) => {
           {hookah.descripiton}
         </p>
         <Button asChild className="absolute right-0 bottom-16">
-          <Link prefetch={false} href={"/menu"}>
+          <Link prefetch={false} href={"/volba-majstra"}>
             Zobraziť menu
             <FaAngleRight
               className="text-white"
