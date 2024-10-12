@@ -3,13 +3,12 @@ import Link from "next/link";
 
 import { fetchAPI } from "@/lib/api";
 import { getStrapiUrl } from "@/lib/get-strapi-url";
-import { TGeneral, TPromotion } from "@/lib/types";
+import { TPromotion } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { Heading } from "../shared/heading";
 import { Button } from "@/components/ui/button";
 
 export async function GridInfo() {
-  const general = (await fetchAPI("general?populate=*")) as TGeneral;
   const promotion = (await fetchAPI("promotion?populate[boxes][populate][0]=image")) as TPromotion;
 
   return (
@@ -17,7 +16,7 @@ export async function GridInfo() {
       {promotion.boxes.map((box, index) => (
         <div
           key={box.subtitle}
-          className="w-full grid grid-cols-1 lg:grid-cols-2 gap-0"
+          className="w-full grid grid-cols-1 lg:grid-cols-2 gap-0 relative z-10"
         >
           <div
             className={cn(

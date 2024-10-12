@@ -17,6 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { CoalDesign } from "../shared/coal-design";
+import { MenuListSkeleton } from "./menu-list-skeleton";
 
 export const MenuList = ({ categories }: { categories: TCategory[] }) => {
   const [activeTab, setActiveTab] = useState(categories[0].attributes.name);
@@ -77,7 +78,7 @@ export const MenuList = ({ categories }: { categories: TCategory[] }) => {
             value={activeTab}
             className="flex items-center justify-center flex-col w-full"
           >
-            {isPending && <p>Loading...</p>}
+            {isPending && <MenuListSkeleton />}
             {error && <p>Error: {error.message}</p>}
             {data && (
               <MenuContentContainer>

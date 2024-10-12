@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { fetchAPI } from "@/lib/api";
-import { TLemonade } from "@/lib/types";
+import { TGeneral, TLemonade } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 import { SubpageHeading } from "../components/shared/subpage-heading";
@@ -12,6 +12,35 @@ import { CoalDesign } from "../components/shared/coal-design";
 type FetchResponse<T> = {
   data: T;
 };
+
+export async function generateMetadata() {
+  const general = (await fetchAPI("general?populate=*")) as TGeneral;
+
+  return {
+    title: 'Smoking Hookah | Limonády',
+    description: 'Objavte osviežujúce limonády v Smoking Hookah, kde nájdete jedinečné chute ako broskyňa na čaji Pu-erh, brusnicový refresher, mango a marakuja s kokosom, a mnoho ďalších. Doprajte si lahodný zážitok v štýlovom prostredí.',
+    keywords: [
+      'limonády Trnava',
+      'osviežujúce limonády',
+      'broskyňa na čaji Pu-erh',
+      'brusnicový refresher',
+      'malina a mäta',
+      'mango a marakuja',
+      'kokosová limonáda',
+      'melón jahoda limonáda',
+      'višňa a vanilka',
+      'hookah bar Trnava',
+      'degustačný lounge Trnava'
+    ],
+    openGraph: {
+      title: 'Smoking Hookah | Limonády',
+      description: 'Preskúmajte lahodné limonády v Smoking Hookah Trnava, ktoré ponúkajú unikátne kombinácie chutí ako broskyňa na čaji Pu-erh, malina s mätou, mango s kokosom a ďalšie osviežujúce nápoje.',
+      image: general?.logo?.data?.attributes?.url ?? '',
+      url: 'https://hookah.sk/limonady'
+    },
+  };
+}
+
 
 export default async function Page() {
   const response: FetchResponse<TLemonade[]> = await fetchAPI(
@@ -42,7 +71,7 @@ export default async function Page() {
               className={cn("w-full max-w-[800px] text-center mx-auto about-us__description")}
               dangerouslySetInnerHTML={{
                 __html:
-                  "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>",
+                  "<p>Vychutnajte si osviežujúce limonády v Smoking Hookah. Od broskyne na čaji Pu-erh až po mango s marakujou a kokosom, naše nápoje ponúkajú jedinečné chute, ktoré potešia každého milovníka limonád.</p>",
               }}
             />
           </div>

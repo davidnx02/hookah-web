@@ -16,6 +16,35 @@ type FetchResponse<T> = {
   data: T;
 };
 
+export async function generateMetadata() {
+  const general = (await fetchAPI("general?populate=*")) as TGeneral;
+
+  return {
+    title: 'Smoking Hookah | Voľba majstra',
+    description: 'Objavte Voľbu majstra v Smoking Hookah, jedinečný zážitok s 6 prémiovými vodnými fajkami pripravenými v špeciálnych vázach s alkoholom, ovocím a sirupmi. Dokonalé kombinácie chutí vytvorené pre váš pôžitok.',
+    keywords: [
+      'Voľba majstra',
+      'prémiové vodné fajky',
+      'vodné fajky s alkoholom',
+      'vodné fajky s ovocím',
+      'vodné fajky s sirupmi',
+      'degustačný lounge Trnava',
+      'exkluzívne vodné fajky',
+      'unikátne vodné fajky',
+      'relax a vodné fajky Trnava',
+      'hookah bar Trnava',
+      'vodná fajka na mieru',
+      'luxusné vodné fajky'
+    ],
+    openGraph: {
+      title: 'Smoking Hookah | Voľba majstra',
+      description: 'Vychutnajte si 6 unikátnych vodných fajok v rámci Voľby majstra v Smoking Hookah. Každá fajka je servírovaná v špeciálnej váze s alkoholom, ovocím a sirupmi, vytvorená pre dokonalú harmóniu chutí.',
+      image: general?.logo?.data?.attributes?.url ?? '',
+      url: 'https://hookah.sk/volba-majstra'
+    },
+  };
+}
+
 export default async function Page() {
   const response: FetchResponse<TMaster[]> = await fetchAPI(
     "masters?populate=*"
@@ -48,7 +77,7 @@ export default async function Page() {
               )}
               dangerouslySetInnerHTML={{
                 __html:
-                  "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>",
+                  "<p>Zažite exkluzívnu Voľbu majstra v Smoking Hookah - 6 jedinečných vodných fajok servírovaných v špeciálnych vázach s rôznymi druhmi alkoholu, ovocím a sirupmi. Dokonalé kombinácie chutí, ktoré obohatia váš zážitok z fajčenia vodnej fajky</p>",
               }}
             />
           </div>

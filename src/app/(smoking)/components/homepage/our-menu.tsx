@@ -16,6 +16,7 @@ export async function OurMenu() {
   return (
     <section className={cn("custom-section", "pt-24 relative")}>
       <CoalDesign variant={2} />
+      <CoalDesign variant={1} className="top-full" />
       <div
         className={cn(
           "max-w-[1024px] w-full",
