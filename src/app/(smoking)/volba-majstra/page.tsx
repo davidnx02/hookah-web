@@ -61,7 +61,7 @@ export default async function Page() {
         image={"/hookah.jpg"}
       />
       <section className={cn("custom-section", 'relative')}>
-        <CoalDesign variant={1} />
+        <CoalDesign variant={1} className="top-[240px] sm:top-0" />
         <CoalDesign variant={2} className="top-1/3" />
         <div
           className={cn(

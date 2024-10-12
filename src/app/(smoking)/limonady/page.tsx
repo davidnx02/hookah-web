@@ -56,7 +56,7 @@ export default async function Page() {
         image={"/hookah.jpg"}
       />
       <section className={cn("custom-section", 'relative')}>
-      <CoalDesign variant={1} />
+      <CoalDesign variant={1} className="top-[240px] sm:top-0" />
       <CoalDesign variant={2} className="top-1/3" />
       <CoalDesign variant={1} className="top-2/3" />
         <div
@@ -99,7 +99,7 @@ export default async function Page() {
                   sizes="(max-width: 760px) 100vw, 680px"
                   quality={100}
                 />
-                <div className="w-full flex flex-col items-start justify-start gap-8 md:max-w-[600px]">
+                <div className="w-full flex flex-col items-start justify-start gap-4 md:max-w-[600px]">
                   <Heading title={lemonade.attributes.name} className={{ title: 'text-accent' }} />
                   <div
                     className={cn("w-full master-choice__description")}

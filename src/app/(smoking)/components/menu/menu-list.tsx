@@ -49,7 +49,7 @@ export const MenuList = ({ categories }: { categories: TCategory[] }) => {
           "menu-list__section"
         )}
       >
-        <CoalDesign variant={1}  />
+        <CoalDesign variant={1} className="top-[80px] sm:top-0" />
         <CoalDesign variant={2} className='top-1/2' />
         <h2 className="hidden sm:block text-4xl lg:text-5xl font-bold text-center text-white">
           {activeCategory?.attributes.name}
@@ -76,7 +76,7 @@ export const MenuList = ({ categories }: { categories: TCategory[] }) => {
           </TabsList>
           <TabsContent
             value={activeTab}
-            className="flex items-center justify-center flex-col w-full"
+            className="flex items-center justify-center flex-col w-full relative z-10"
           >
             {isPending && <MenuListSkeleton />}
             {error && <p>Error: {error.message}</p>}

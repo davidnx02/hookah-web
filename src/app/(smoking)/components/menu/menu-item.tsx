@@ -2,7 +2,7 @@ import { TItem } from "@/lib/types";
 
 export const MenuItem = ({ item }: { item: TItem }) => {
   return (
-    <div className="w-full flex flex-col items-center justify-center gap-2.5 sm:gap-3">
+    <div className="w-full flex flex-col items-center justify-center gap-2.5 sm:gap-3 relative z-30">
       <div className="w-full flex items-center justify-between">
         <p className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl uppercase">
           {item.attributes.name}
