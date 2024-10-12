@@ -10,27 +10,26 @@ export async function generateMetadata() {
 
   return {
     title: 'Smoking Hookah | Degustačný lounge',
-    description: 'Objavte menu Smoking Hookah v srdci Trnavy s prémiovými vodnými fajkami, osviežujúcimi limonádami, alkoholickými aj nealkoholickými nápojmi. V ponuke nájdete aj čaje, kávu, pochutiny a doplnky k fajke. Relaxujte v štýlovom prostredí a vychutnajte si jedinečný zážitok',
+    description: 'Vitajte v Smoking Hookah, prémiovom degustačnom lounge v centre Trnavy. Ponúkame najlepšie vodné fajky, osviežujúce limonády a skvelú atmosféru pre váš relax a zábavu. Navštívte nás a užite si jedinečný zážitok.',
     keywords: [
       'Smoking Hookah',
       'vodné fajky Trnava',
       'prémiové vodné fajky',
-      'degustačný lounge Trnava',
-      'limonády Trnava',
-      'alkoholické nápoje',
-      'nealkoholické nápoje',
-      'čaje a káva',
-      'doplnky k fajke',
-      'pochutiny k vodným fajkám',
-      'relax Trnava',
       'hookah bar Trnava',
-      'fajčenie vodnej fajky'
+      'degustačný lounge Trnava',
+      'relax Trnava',
+      'vodná fajka',
+      'limonády Trnava',
+      'hookah lounge',
+      'vodné fajky a limonády',
+      'relax a zábava Trnava',
+      'degustácia vodných fajok'
     ],    
     openGraph: {
       title: 'Smoking Hookah | Degustačný lounge',
-      description: 'Preskúmajte naše jedinečné menu v Smoking Hookah Trnava, kde ponúkame prémiové vodné fajky, osviežujúce limonády, alkoholické aj nealkoholické nápoje, čaje, kávu a pochutiny. Vytvárame dokonalý priestor pre relax a zábavu v srdci Trnavy.',
+      description: 'Objavte prémiové vodné fajky a osviežujúce limonády v exkluzívnom Smoking Hookah lounge v centre Trnavy. Doprajte si jedinečný zážitok v štýlovom prostredí, kde sa relax a zábava stretávajú.',
       image: general?.logo?.data?.attributes?.url ?? '',
-      url: 'https://yourwebsite.com/menu'
+      url: 'https://hookah.sk'
     },
   };
 }
