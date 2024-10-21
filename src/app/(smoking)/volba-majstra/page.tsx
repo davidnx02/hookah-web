@@ -11,6 +11,7 @@ import { getStrapiUrl } from "@/lib/get-strapi-url";
 import { Button } from "@/components/ui/button";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { CoalDesign } from "../components/shared/coal-design";
+import { ReservationButton } from "../components/shared/reservation-button";
 
 type FetchResponse<T> = {
   data: T;
@@ -20,27 +21,29 @@ export async function generateMetadata() {
   const general = (await fetchAPI("general?populate=*")) as TGeneral;
 
   return {
-    title: 'Smoking Hookah | Voľba majstra',
-    description: 'Objavte Voľbu majstra v Smoking Hookah, jedinečný zážitok s 6 prémiovými vodnými fajkami pripravenými v špeciálnych vázach s alkoholom, ovocím a sirupmi. Dokonalé kombinácie chutí vytvorené pre váš pôžitok.',
+    title: "Smoking Hookah | Voľba majstra",
+    description:
+      "Objavte Voľbu majstra v Smoking Hookah, jedinečný zážitok s 6 prémiovými vodnými fajkami pripravenými v špeciálnych vázach s alkoholom, ovocím a sirupmi. Dokonalé kombinácie chutí vytvorené pre váš pôžitok.",
     keywords: [
-      'Voľba majstra',
-      'prémiové vodné fajky',
-      'vodné fajky s alkoholom',
-      'vodné fajky s ovocím',
-      'vodné fajky s sirupmi',
-      'degustačný lounge Trnava',
-      'exkluzívne vodné fajky',
-      'unikátne vodné fajky',
-      'relax a vodné fajky Trnava',
-      'hookah bar Trnava',
-      'vodná fajka na mieru',
-      'luxusné vodné fajky'
+      "Voľba majstra",
+      "prémiové vodné fajky",
+      "vodné fajky s alkoholom",
+      "vodné fajky s ovocím",
+      "vodné fajky s sirupmi",
+      "degustačný lounge Trnava",
+      "exkluzívne vodné fajky",
+      "unikátne vodné fajky",
+      "relax a vodné fajky Trnava",
+      "hookah bar Trnava",
+      "vodná fajka na mieru",
+      "luxusné vodné fajky",
     ],
     openGraph: {
-      title: 'Smoking Hookah | Voľba majstra',
-      description: 'Vychutnajte si 6 unikátnych vodných fajok v rámci Voľby majstra v Smoking Hookah. Každá fajka je servírovaná v špeciálnej váze s alkoholom, ovocím a sirupmi, vytvorená pre dokonalú harmóniu chutí.',
-      image: general?.logo?.data?.attributes?.url ?? '',
-      url: 'https://hookah.sk/volba-majstra'
+      title: "Smoking Hookah | Voľba majstra",
+      description:
+        "Vychutnajte si 6 unikátnych vodných fajok v rámci Voľby majstra v Smoking Hookah. Každá fajka je servírovaná v špeciálnej váze s alkoholom, ovocím a sirupmi, vytvorená pre dokonalú harmóniu chutí.",
+      image: general?.logo?.data?.attributes?.url ?? "",
+      url: "https://hookah.sk/volba-majstra",
     },
   };
 }
@@ -60,7 +63,7 @@ export default async function Page() {
         breadcrumbs={{ name: "Voľba majstra", url: "volba-majstra" }}
         image={"/hookah.jpg"}
       />
-      <section className={cn("custom-section", 'relative')}>
+      <section className={cn("custom-section", "relative")}>
         <CoalDesign variant={1} className="top-[240px] sm:top-0" />
         <CoalDesign variant={2} className="top-1/3" />
         <div
@@ -115,15 +118,9 @@ export default async function Page() {
                       __html: `<p>${master.attributes.description}</p>`,
                     }}
                   />
-                  <Button asChild>
-                    <Link
-                      prefetch={false}
-                      target="_blank"
-                      href={`tel:${general.phone}`}
-                    >
-                      Rezervovať si vodnú <MdOutlinePhoneInTalk size={20} />
-                    </Link>
-                  </Button>
+                  <ReservationButton general={general}>
+                    Rezervovať si vodnú <MdOutlinePhoneInTalk size={20} />
+                  </ReservationButton>
                 </div>
               </div>
             ))}
