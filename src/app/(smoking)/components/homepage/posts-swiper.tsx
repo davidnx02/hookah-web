@@ -30,7 +30,7 @@ export const PostsSwiper = ({ posts }: { posts: TPost[]; }) => {
             prefetch={false}
             target="_blank"
             href={post.link}
-            className="w-full h-full bg-red-200"
+            className="w-full h-full"
           >
             <Image
               src={getStrapiUrl(post.image.data.attributes.url)}

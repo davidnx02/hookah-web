@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/select";
 import { CoalDesign } from "../shared/coal-design";
 import { MenuListSkeleton } from "./menu-list-skeleton";
+import Link from "next/link";
 
 export const MenuList = ({ categories }: { categories: TCategory[] }) => {
   const [activeTab, setActiveTab] = useState(categories[0].attributes.name);
@@ -50,7 +51,7 @@ export const MenuList = ({ categories }: { categories: TCategory[] }) => {
         )}
       >
         <CoalDesign variant={1} className="top-[80px] sm:top-0" />
-        <CoalDesign variant={2} className='top-1/2' />
+        <CoalDesign variant={2} className="top-1/2" />
         <h2 className="hidden sm:block text-4xl lg:text-5xl font-bold text-center text-white">
           {activeCategory?.attributes.name}
         </h2>
@@ -61,18 +62,36 @@ export const MenuList = ({ categories }: { categories: TCategory[] }) => {
           className="w-full max-w-[900px] hidden sm:flex flex-col items-center justify-center gap-12"
         >
           <TabsList className="w-full flex items-center justify-center flex-wrap gap-4 h-fit p-0 bg-transparent">
-            {categories.map((category) => (
-              <TabsTrigger
-                key={category.attributes.name}
-                value={category.attributes.name}
-                className={cn(
-                  "tabs-menu-list__trigger",
-                  "h-fit w-fit bg-transparent border border-white text-white py-3 px-8 text-base font-bold rounded-none"
-                )}
-              >
-                {category.attributes.name}
-              </TabsTrigger>
-            ))}
+            {categories.map((category) => {
+              return (
+                <>
+                  {category.attributes.slug === "volba-majstra" ? (
+                    <Link
+                      prefetch={false}
+                      key={"volba-majstra"}
+                      href={"/volba-majstra"}
+                      className={cn(
+                        "tabs-menu-list__trigger",
+                        "h-fit w-fit bg-transparent border border-white text-white py-3 px-8 text-base font-bold rounded-none"
+                      )}
+                    >
+                      {category.attributes.name}
+                    </Link>
+                  ) : (
+                    <TabsTrigger
+                      key={category.attributes.name}
+                      value={category.attributes.name}
+                      className={cn(
+                        "tabs-menu-list__trigger",
+                        "h-fit w-fit bg-transparent border border-white text-white py-3 px-8 text-base font-bold rounded-none"
+                      )}
+                    >
+                      {category.attributes.name}
+                    </TabsTrigger>
+                  )}
+                </>
+              );
+            })}
           </TabsList>
           <TabsContent
             value={activeTab}
@@ -109,15 +128,30 @@ export const MenuList = ({ categories }: { categories: TCategory[] }) => {
                 <SelectContent
                   className={cn("menu-list__select-content top-2 rounded-none")}
                 >
-                  {categories.map((category) => (
-                    <SelectItem
-                      key={category.attributes.name}
-                      value={category.attributes.name}
-                      className={cn("menu-list__select-trigger")}
-                    >
-                      {category.attributes.name}
-                    </SelectItem>
-                  ))}
+                  {categories.map((category) => {
+                    return (
+                      <>
+                        {category.attributes.slug === "volba-majstra" ? (
+                          <Link
+                            prefetch={false}
+                            key={"volba-majstra"}
+                            href={"/volba-majstra"}
+                            className={cn("menu-list__select-trigger", '!text-white text-sm pl-8 pt-2')}
+                          >
+                            {category.attributes.name}
+                          </Link>
+                        ) : (
+                          <SelectItem
+                            key={category.attributes.name}
+                            value={category.attributes.name}
+                            className={cn("menu-list__select-trigger")}
+                          >
+                            {category.attributes.name}
+                          </SelectItem>
+                        )}
+                      </>
+                    );
+                  })}
                 </SelectContent>
               </SelectTrigger>
             </div>
