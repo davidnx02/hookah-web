@@ -18,6 +18,12 @@ export const ReservationButton = ({
 }) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
+  const data = [
+    {
+      description: ''
+    }
+  ]
+
   return (
     <>
       {isMobile ? (
@@ -32,7 +38,7 @@ export const ReservationButton = ({
             <Button>{children}</Button>
           </DialogTrigger>
           <DialogContent className="w-full bg-transparent h-full  border-none rounded-none shadow-none flex items-center justify-center">
-            <div className={cn('custom-container', 'bg-white rounded-none h-[600px]')}>
+            <div className={cn('custom-container', 'bg-[#0E0E0E] rounded-none h-[600px]')}>
 
             </div>
           </DialogContent>

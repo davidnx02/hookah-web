@@ -9,7 +9,9 @@ import { Heading } from "../shared/heading";
 import { Button } from "@/components/ui/button";
 
 export async function GridInfo() {
-  const promotion = (await fetchAPI("promotion?populate[boxes][populate][0]=image")) as TPromotion;
+  const promotion = (await fetchAPI(
+    "promotion?populate[boxes][populate][0]=image"
+  )) as TPromotion;
 
   return (
     <section className="w-full flex flex-col items-center justify-items-center gap-0 mt-24 max-w-[1940px] mx-auto">
@@ -39,13 +41,15 @@ export async function GridInfo() {
               index % 2 === 0 ? "lg:order-2" : "lg:order-1"
             )}
           >
-            <Heading 
+            <Heading
               title={box.title}
               className={{
-                container: 'text-center justify-center items-center'
+                container: "text-center justify-center items-center",
               }}
             />
-            <p className="text-sm sm:text-base font-medium text-[#d9d9d9] text-center max-w-[600px]">{box.description}</p>
+            <p className="text-sm sm:text-base font-medium text-[#d9d9d9] text-center max-w-[700px]">
+              {box.description}
+            </p>
             <Button asChild>
               <Link prefetch={false} href={box.button_link}>
                 {box.button_label}

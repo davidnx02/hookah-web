@@ -9,8 +9,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import { Navigation } from "swiper/modules";
+import { TPost } from "@/lib/types";
+import { getStrapiUrl } from "@/lib/get-strapi-url";
 
-export const PostsSwiper = ({ posts }: { posts: any[] }) => {
+export const PostsSwiper = ({ posts }: { posts: TPost[]; }) => {
   return (
     <Swiper
       navigation={true}
@@ -31,7 +33,7 @@ export const PostsSwiper = ({ posts }: { posts: any[] }) => {
             className="w-full h-full bg-red-200"
           >
             <Image
-              src={post.image}
+              src={getStrapiUrl(post.image.data.attributes.url)}
               alt={"Smoking Hookah"}
               fill
               style={{ objectFit: "cover", objectPosition: "center" }}

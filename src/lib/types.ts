@@ -28,6 +28,9 @@ export type TGeneral = {
   postcode: string;
   address: string;
   logo: TImage;
+  instagram_link: string;
+  linkedin_link: string;
+  facebook_link: string;
 };
 
 export type THero = {
@@ -136,4 +139,9 @@ export type TLemonade = {
     image: TImage;
   }
 
+}
+
+export type TPost = {
+  link: string;
+  image: TImage;
 }

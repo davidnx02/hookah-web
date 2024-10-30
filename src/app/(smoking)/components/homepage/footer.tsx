@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { fetchAPI } from "@/lib/api";
 import { getStrapiUrl } from "@/lib/get-strapi-url";
-import { TGeneral, TNavigation } from "@/lib/types";
+import { TGeneral, TNavigation, TPost } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { Heading } from "../shared/heading";
 import { PostsSwiper } from "./posts-swiper";
@@ -11,33 +11,7 @@ import { PostsSwiper } from "./posts-swiper";
 export async function Footer() {
   const general = (await fetchAPI("general?populate=*")) as TGeneral;
   const navigation = (await fetchAPI("navigation?populate=*")) as TNavigation;
-
-  const posts = [
-    {
-      image: "/posts/1.jpg",
-      link: 'https://www.instagram.com/p/DA8q86LqcKv/'
-    },
-    {
-      image: "/posts/2.jpg",
-      link: 'https://www.instagram.com/p/DA2_HgJu11f/'
-    },
-    {
-      image: "/posts/3.jpg",
-      link: 'https://www.instagram.com/p/DAymdqPOHbg/'
-    },
-    {
-      image: "/posts/4.jpg",
-      link: 'https://www.instagram.com/p/DAtEq-bKv_V/'
-    },
-    {
-      image: "/posts/5.jpg",
-      link: 'https://www.instagram.com/p/DAlVp8ZKe4i/'
-    },
-    {
-      image: "/posts/6.jpg",
-      link: 'https://www.instagram.com/p/DAgeVViqXdx/'
-    },
-  ]
+  const posts = (await fetchAPI("instagram?populate[post][populate][0]=image")).post as TPost[];
 
   return (
     <>
@@ -50,13 +24,13 @@ export async function Footer() {
       <footer
         className={cn(
           "custom-section",
-          "bg-[#050505] pb-16 pt-12 sm:pt-16 sm:pb-24"
+          "bg-[#050505] pb-16 pt-8 sm:pt-8 sm:pb-20"
         )}
       >
         <div
           className={cn(
             "custom-container",
-            "flex items-center justify-center gap-8 sm:gap-16 flex-col"
+            "flex items-center justify-center gap-8 flex-col"
           )}
         >
           <div className="flex items-center justify-center sm:justify-between w-full">

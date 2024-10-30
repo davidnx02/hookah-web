@@ -70,7 +70,7 @@ const HookahCard = ({ hookah }: { hookah: THookah }) => {
         </p>
         <Button asChild className="absolute right-0 bottom-16">
           <Link prefetch={false} href={"/volba-majstra"}>
-            Zobraziť menu
+            Zobraziť voľbu
             <FaAngleRight
               className="text-white"
               width={24}
