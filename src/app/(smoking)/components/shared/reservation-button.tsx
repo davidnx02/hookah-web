@@ -20,7 +20,7 @@ export const ReservationButton = ({
 
   const data = [
     {
-      description: ''
+      description: ' '
     }
   ]
 
