@@ -37,7 +37,7 @@ export async function Hero() {
           asChild
           className="bg-transparent border-2 border-white md:border-primary text-white md:text-primary hover:bg-transparent hover:opacity-90 transition"
         >
-          <Link prefetch={false} href={`https://wa.me/${general.phone}`}>
+          <Link prefetch={false} href={`https://wa.me/${general.phone}`} target="_blank">
             {hero.button_label}
             <FaAngleRight
               className="text-white md:text-primary"

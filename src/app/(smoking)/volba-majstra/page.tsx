@@ -119,7 +119,7 @@ export default async function Page() {
                     }}
                   />
                   <Button asChild className="w-full sm:w-fit">
-                    <Link prefetch={false} href={`https://wa.me/${general.phone}`}>
+                    <Link prefetch={false} href={`https://wa.me/${general.phone}`} target="_blank">
                       Rezervovať <MdOutlinePhoneInTalk size={24} />
                     </Link>
                   </Button>  

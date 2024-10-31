@@ -93,7 +93,7 @@ export const CateringService = async ({
         {service.description}
       </p>
       <Button asChild className="w-full sm:w-fit">
-        <Link prefetch={false} href={`https://wa.me/${general.phone}`}>
+        <Link prefetch={false} href={`https://wa.me/${general.phone}`} target="_blank">
           Mám záujem o službu
           <MdOutlinePhoneInTalk size={24} className="text-white" />
         </Link>
