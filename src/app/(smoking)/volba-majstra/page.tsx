@@ -118,9 +118,11 @@ export default async function Page() {
                       __html: `<p>${master.attributes.description}</p>`,
                     }}
                   />
-                  <ReservationButton general={general}>
-                    Rezervovať si vodnú <MdOutlinePhoneInTalk size={20} />
-                  </ReservationButton>
+                  <Button asChild className="w-full sm:w-fit">
+                    <Link prefetch={false} href={`https://wa.me/${general.phone}`}>
+                      Rezervovať <MdOutlinePhoneInTalk size={24} />
+                    </Link>
+                  </Button>  
                 </div>
               </div>
             ))}

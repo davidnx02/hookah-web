@@ -47,7 +47,7 @@ export async function NavBar() {
             ))}
           </ul>
           <Button asChild className="uppercase">
-            <Link prefetch={false} href={`tel:${general.phone}`}>
+            <Link prefetch={false} href={`https://wa.me/${general.phone}`}>
               REZERVOVAť
               <MdOutlinePhoneInTalk size={24} className="text-white" />
             </Link>

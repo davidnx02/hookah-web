@@ -1,19 +1,25 @@
+import Link from "next/link";
 import React from "react";
 
-import { TCateringService } from "@/lib/types";
+import { TCateringService, TGeneral } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 import { IoMdPricetags } from "react-icons/io";
 import { RxLapTimer } from "react-icons/rx";
 import { CateringServiceIcon } from "./catering-service-icons";
+import { Button } from "@/components/ui/button";
+import { MdOutlinePhoneInTalk } from "react-icons/md";
+import { fetchAPI } from "@/lib/api";
 
-export const CateringService = ({
+export const CateringService = async ({
   service,
   index,
 }: {
   service: TCateringService;
   index: number;
 }) => {
+  const general = (await fetchAPI("general?populate=*")) as TGeneral;
+
   const icons = [
     {
       image: "/hookah-icon.svg",
@@ -86,6 +92,12 @@ export const CateringService = ({
       >
         {service.description}
       </p>
+      <Button asChild className="w-full sm:w-fit">
+        <Link prefetch={false} href={`https://wa.me/${general.phone}`}>
+          Mám záujem o službu
+          <MdOutlinePhoneInTalk size={24} className="text-white" />
+        </Link>
+      </Button>
     </div>
   );
 };

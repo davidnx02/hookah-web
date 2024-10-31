@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { fetchAPI } from "@/lib/api";
-import { THero } from "@/lib/types";
+import { TGeneral, THero } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { Heading } from "../shared/heading";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,7 @@ import { getStrapiUrl } from "@/lib/get-strapi-url";
 
 export async function Hero() {
   const hero = (await fetchAPI("hero?populate=*")) as THero;
+  const general = (await fetchAPI("general?populate=*")) as TGeneral;
 
   return (
     <section className={cn("custom-section", "relative pt-[160px] sm:pt-[220px] pb-[200px] sm:pb-[160px]")}>
@@ -36,7 +37,7 @@ export async function Hero() {
           asChild
           className="bg-transparent border-2 border-white md:border-primary text-white md:text-primary hover:bg-transparent hover:opacity-90 transition"
         >
-          <Link prefetch={false} href={hero.button_link}>
+          <Link prefetch={false} href={`https://wa.me/${general.phone}`}>
             {hero.button_label}
             <FaAngleRight
               className="text-white md:text-primary"
