@@ -53,7 +53,7 @@ export default async function Page() {
       <SubpageHeading
         title="LIMONÁDY" // "Limonády"
         breadcrumbs={{ name: "Limonády", url: "limonady" }}
-        image={"/hookah.jpg"}
+        image={"/limonady.jpg"}
       />
       <section className={cn("custom-section", 'relative')}>
       <CoalDesign variant={1} className="top-[240px] sm:top-0" />
