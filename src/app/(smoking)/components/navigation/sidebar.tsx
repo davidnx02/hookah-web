@@ -36,7 +36,7 @@ export const Sidebar = ({
                 prefetch={false}
                 href={link.url}
                 className={cn(
-                  "text-white py-2 max-w-[200px] w-full flex items-start justify-start font-normal text-xl",
+                  "text-white py-2 max-w-[200px] w-full flex items-start justify-start font-medium text-xl",
 
                   pathname === link.url && "text-accent font-bold"
                 )}
@@ -47,7 +47,7 @@ export const Sidebar = ({
           ))}
         </div>
         <Button asChild className="w-full mt-8">
-          <Link prefetch={false} href={`tel:${phone}`}>
+          <Link prefetch={false} href={`https://wa.me/+421919370232`}>
             Rezervovať teraz
             <MdOutlinePhoneInTalk size={24} className="text-white" />
           </Link>

@@ -45,7 +45,7 @@ export default async function Page() {
     <>
       <SubpageHeading
         title="Catering"
-        image="/team.jpg"
+        image="/catering-auto.jpg"
         breadcrumbs={{
           name: "Catering",
           url: "catering",

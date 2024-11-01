@@ -35,25 +35,24 @@ export async function Hero() {
         </div>
         <Button
           asChild
-          className="bg-transparent border-2 border-white md:border-primary text-white md:text-primary hover:bg-transparent hover:opacity-90 transition"
+          className="bg-transparent border-2 border-white text-white hover:bg-transparent hover:opacity-90 transition"
         >
           <Link prefetch={false} href={`https://wa.me/${general.phone}`} target="_blank">
             {hero.button_label}
             <FaAngleRight
-              className="text-white md:text-primary"
+              className="text-white"
               width={24}
               height={24}
             />
           </Link>
         </Button>
       </div>
-      <div className="w-full h-full absolute inset-0 bg-black/50 z-[2]" />
+      <div className="w-full h-full absolute inset-0 bg-black/45 z-[2]" />
       <Image
         src={getStrapiUrl(hero.background.data.attributes.url)}
         alt="Degustation Lounge Smoking Hookah"
         fill
-        style={{ objectFit: "cover", objectPosition: "center" }}
-        className="absolute w-full h-full inset-0 z-[1]"
+        className="absolute w-full h-full inset-0 z-[1] object-cover object-center"
         sizes="100vw"
         priority={true}
         loading="eager"
