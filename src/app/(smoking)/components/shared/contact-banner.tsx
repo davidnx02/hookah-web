@@ -26,8 +26,8 @@ export async function ContactBanner() {
       <div className="h-4 sm:h-5 w-[1px] bg-white" />
       <Link
         prefetch={false}
+        href={`https://wa.me/${general.phone}`}
         target="_blank"
-        href={`tel:${general.phone}`}
         className="text-xs sm:text-sm font-medium flex items-center justify-start gap-2.5 sm:gap-3"
       >
         <MdOutlineLocalPhone className="w-5 h-5 sm:w-6 sm:h-6" />
