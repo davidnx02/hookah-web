@@ -1,3 +1,4 @@
+// src/lib/api.ts
 interface StrapiObject {
   attributes: {
     [key: string]: any;
@@ -10,6 +11,7 @@ interface FetchApiParams {
   type?: string;
   populate?: any;
   affiliate?: string;
+  filters?: Record<string, string>; // Add custom filters
 }
 
 const formatStrapiObject = (item: StrapiObject) => {
@@ -20,16 +22,25 @@ export async function fetchAPI(url: string, options?: FetchApiParams) {
   try {
     const params: string[] = [];
 
-    options?.affiliate && params.push(`filters[affiliate_id]=${options?.affiliate}`);
-    options?.slug && params.push(`filters[slug]=${options?.slug}`);
-    options?.type && params.push(`filters[type]=${options?.type}`);
-    if (options?.populate === "*") {
-      options?.populate && params.push(`populate=*`);
-    } else {
-      options?.populate && params.push(`populate=deep, ${options?.populate}`);
+    // Existing filters
+    options?.affiliate && params.push(`filters[affiliate_id]=${options.affiliate}`);
+    options?.slug && params.push(`filters[slug]=${options.slug}`);
+    options?.type && params.push(`filters[type]=${options.type}`);
+
+    // Add custom filters
+    if (options?.filters) {
+      Object.entries(options.filters).forEach(([key, value]) => {
+        params.push(`filters[${key}][$eq]=${value}`);
+      });
     }
 
-    // Generate a random number to use as a query parameter
+    // Populate
+    if (options?.populate === "*") {
+      params.push(`populate=*`);
+    } else if (options?.populate) {
+      params.push(`populate=deep,${options.populate}`);
+    }
+
     const randomQueryParam = `random=${Math.random()}`;
 
     const res = await fetch(
@@ -42,8 +53,8 @@ export async function fetchAPI(url: string, options?: FetchApiParams) {
           "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
           "Pragma": "no-cache",
           "Expires": "0",
-          "Surrogate-Control": "no-store"
-        }
+          "Surrogate-Control": "no-store",
+        },
       }
     );
 

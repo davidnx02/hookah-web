@@ -1,3 +1,3 @@
 export const getStrapiUrl = (url:string) => {
-  return `${url}`
+  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${url}`;
 }

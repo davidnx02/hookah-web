@@ -1,46 +1,71 @@
-import { Hero } from "./components/homepage/hero";
-import { AboutUs } from "./components/homepage/about-us";
-import { OurMenu } from "./components/homepage/our-menu";
-import { GridInfo } from "./components/homepage/grid-info";
-import { TGeneral } from "@/lib/types";
+import { TCTABanner, TGeneral, THero, TInfoSection, TStats } from "@/lib/types";
 import { fetchAPI } from "@/lib/api";
+import { Stats } from "./components/homepage/stats";
+import { InfoSection } from "./components/shared/info-section";
+import { CTABanner } from "./components/homepage/cta-banner";
+import { Achievements } from "./components/homepage/achievements";
+import { Gallery } from "./components/homepage/gallery";
+import { VisitUs } from "./components/homepage/visit-us";
+import { Hero } from "./components/homepage/hero";
+import { cn, fetchInfoSections } from "@/lib/utils";
 
 export async function generateMetadata() {
   const general = (await fetchAPI("general?populate=*")) as TGeneral;
 
   return {
-    title: 'Smoking Hookah | Degustačný lounge',
-    description: 'Vitajte v Smoking Hookah, prémiovom degustačnom lounge v centre Trnavy. Ponúkame najlepšie vodné fajky, osviežujúce limonády a skvelú atmosféru pre váš relax a zábavu. Navštívte nás a užite si jedinečný zážitok.',
+    title: "Smoking Hookah | Degustačný lounge",
+    description:
+      "Vitajte v Smoking Hookah, prémiovom degustačnom lounge v centre Trnavy. Ponúkame najlepšie vodné fajky, osviežujúce limonády a skvelú atmosféru pre váš relax a zábavu. Navštívte nás a užite si jedinečný zážitok.",
     keywords: [
-      'Smoking Hookah',
-      'vodné fajky Trnava',
-      'prémiové vodné fajky',
-      'hookah bar Trnava',
-      'degustačný lounge Trnava',
-      'relax Trnava',
-      'vodná fajka',
-      'limonády Trnava',
-      'hookah lounge',
-      'vodné fajky a limonády',
-      'relax a zábava Trnava',
-      'degustácia vodných fajok'
-    ],    
+      "Smoking Hookah",
+      "vodné fajky Trnava",
+      "prémiové vodné fajky",
+      "hookah bar Trnava",
+      "degustačný lounge Trnava",
+      "relax Trnava",
+      "vodná fajka",
+      "limonády Trnava",
+      "hookah lounge",
+      "vodné fajky a limonády",
+      "relax a zábava Trnava",
+      "degustácia vodných fajok",
+    ],
     openGraph: {
-      title: 'Smoking Hookah | Degustačný lounge',
-      description: 'Objavte prémiové vodné fajky a osviežujúce limonády v exkluzívnom Smoking Hookah lounge v centre Trnavy. Doprajte si jedinečný zážitok v štýlovom prostredí, kde sa relax a zábava stretávajú.',
-      image: general?.logo?.data?.attributes?.url ?? '',
-      url: 'https://hookah.sk'
+      title: "Smoking Hookah | Degustačný lounge",
+      description:
+        "Objavte prémiové vodné fajky a osviežujúce limonády v exkluzívnom Smoking Hookah lounge v centre Trnavy. Doprajte si jedinečný zážitok v štýlovom prostredí, kde sa relax a zábava stretávajú.",
+      image: general?.logo?.data?.attributes?.url ?? "",
+      url: "https://hookah.sk",
     },
   };
 }
 
 export default async function Home() {
+  const general = (await fetchAPI("general?populate=*")) as TGeneral;
+  const hero = (await fetchAPI("hero?populate=*")) as THero;
+  const stat = (await fetchAPI("stat?populate=*")) as TStats;
+  const ctaBanner = (await fetchAPI("cta-banner?populate=*")) as TCTABanner;
+  const infoSections = await fetchInfoSections("home");
+
   return (
     <>
-      <Hero />
-      <AboutUs />
-      <OurMenu />
-      <GridInfo />
+      <Hero general={general} hero={hero} />
+      <Stats stats={stat.stat} />
+      <section
+        className={cn(
+          "custom-section",
+          "ea-homepage__info-section",
+          "gap-24 py-16 sm:py-20 lg:py-24"
+        )}
+      >
+        {infoSections.map((section, index) => (
+          <InfoSection key={section.id} section={section} index={index} />
+        ))}
+      </section>
+      <CTABanner banner={ctaBanner} />
+      <Achievements />
+      <Gallery />
+      <VisitUs />
     </>
   );
 }

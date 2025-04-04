@@ -1,3 +1,6 @@
+import { buttonVariants } from "@/components/ui/button";
+import { VariantProps } from "class-variance-authority";
+
 export type TImage = {
   data: {
     id: number;
@@ -34,13 +37,43 @@ export type TGeneral = {
 };
 
 export type THero = {
-  subtitle: string;
+  title: string;
+  image: TImage;
+  buttons: {
+    name: string;
+    url: string;
+    variant: VariantProps<typeof buttonVariants>["variant"];
+  }[]
+};
+
+export type TInfoSection = {
+  id: number;
   title: string;
   description: string;
-  button_label: string;
-  button_link: string;
-  background: TImage;
+  button?: {
+    name: string;
+    url: string;
+    variant: VariantProps<typeof buttonVariants>["variant"];
+  };
+  image1: {
+    url: string;
+    alt: string;
+  };
+  image2: {
+    url: string;
+    alt: string;
+  };
+  page: "home" | "menu" | "vodne-fajky" | "kontakt";
 };
+
+export type TStat = {
+  value: string;
+  label: string;
+}
+
+export type TStats = {
+  stat: TStat[];
+}
 
 export type TNavigation = {
   links: TNavLink[];
@@ -143,5 +176,16 @@ export type TLemonade = {
 
 export type TPost = {
   link: string;
+  image: TImage;
+}
+
+export type TCTABanner = {
+  title: string;
+  description: string;
+  button: {
+    name: string;
+    url: string;
+    variant: VariantProps<typeof buttonVariants>["variant"];
+  };
   image: TImage;
 }
