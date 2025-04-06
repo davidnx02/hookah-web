@@ -59,7 +59,7 @@ export function AchievementGallery({ images }: { images: any[] }) {
                   )}
                 />
                 <Image
-                  src={getStrapiUrl(image.attributes.url)}
+                  src={image.attributes.url}
                   alt="Achievement"
                   width={0}
                   height={0}

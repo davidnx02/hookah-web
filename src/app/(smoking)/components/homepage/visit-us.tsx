@@ -26,9 +26,9 @@ export function VisitUs({
         )}
       >
         <div className="md:max-w-[451px] w-full flex flex-col items-start justify-start gap-4 sm:gap-6 px-5 sm:px-0">
-          <Heading title={data.title} />
+          <Heading title='<span>NAVŠTÍVTE</span> NÁS' />
           <HtmlContent
-            content={data.description}
+            content={'<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system.</p>'}
             className="flex flex-col items-start justify-start gap-4"
           />
           <div className="w-full grid grid-cols-2 gap-y-8 gap-x-6">
@@ -102,20 +102,20 @@ export function VisitUs({
                 <div className="w-full flex flex-col items-start justify-start gap-2">
                   <div className="w-full flex items-center justify-between gap-4">
                     <p className="text-sm text-[#b9b9b9] whitespace-nowrap shrink-0">
-                      {data.hours_date_1}
+                    Pondelok - Štvrtok
                     </p>
                     <div className="flex-1 h-[1px] bg-primary" />
                     <p className="text-sm text-[#b9b9b9] whitespace-nowrap shrink-0">
-                      {data.hours_time_1}
+                    15:00 - 01:00
                     </p>
                   </div>
                   <div className="w-full flex items-center justify-between gap-4">
                     <p className="text-sm text-[#b9b9b9] whitespace-nowrap shrink-0">
-                      {data.hours_date_2}
+                    Piatok - Nedeľa
                     </p>
                     <div className="flex-1 h-[1px] bg-primary" />
                     <p className="text-sm text-[#b9b9b9] whitespace-nowrap shrink-0">
-                      {data.hours_time_2}
+                    15:00 - 02:00
                     </p>
                   </div>
                 </div>
@@ -124,11 +124,10 @@ export function VisitUs({
           </div>
           <Button
             asChild
-            variant={data.button.variant}
             className="w-full sm:w-fit"
           >
-            <Link prefetch={false} href={data.button.url} target="_blank">
-              {data.button.name}
+            <Link prefetch={false} href={'https://www.google.sk/maps/place/SmoKing+hookah+lounge/@48.380157,17.5841667,129m/data=!3m1!1e3!4m6!3m5!1s0x476ca181ca917375:0xd052bb7e26dbeea9!8m2!3d48.3801748!4d17.584455!16s%2Fg%2F11flfcqzgf?hl=sk&entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoJLDEwMjExNjQwSAFQAw%3D%3D'} target="_blank">
+            Otvoriť navigáciu
             </Link>
           </Button>
         </div>
@@ -141,8 +140,8 @@ export function VisitUs({
               )}
             />
             <Image
-              src={getStrapiUrl(data.image1.data.attributes.url)}
-              alt={data.button?.name ?? ""}
+              src={'/placeholder.png'}
+              alt={""}
               width={0}
               height={0}
               className="absolute w-full h-full object-cover z-0 object-center"
@@ -157,8 +156,8 @@ export function VisitUs({
               )}
             />
             <Image
-              src={getStrapiUrl(data.image2.data.attributes.url)}
-              alt={data.button?.name ?? ""}
+              src={'/placeholder.png'}
+              alt={""}
               width={0}
               height={0}
               className="absolute w-full h-full object-cover z-0 object-center"

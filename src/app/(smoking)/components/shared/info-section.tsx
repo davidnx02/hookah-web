@@ -15,7 +15,7 @@ export function InfoSection({
   section: TInfoSection;
   index: number;
 }) {
-  console.log(section.image1);
+  console.log(section);
 
   return (
     <div
@@ -52,7 +52,7 @@ export function InfoSection({
             )}
           />
           <Image
-            src={getStrapiUrl(section.image1.url)}
+            src={section.image1.url}
             alt={section.button?.name ?? ""}
             width={0}
             height={0}
@@ -68,7 +68,7 @@ export function InfoSection({
             )}
           />
           <Image
-            src={getStrapiUrl(section.image2.url)}
+            src={section.image2.url}
             alt={section.button?.name ?? ""}
             width={0}
             height={0}

@@ -25,7 +25,7 @@ export async function Hero({
     >
       <div className="flex flex-col items-center justify-center gap-8 relative z-10">
         <Image
-          src={getStrapiUrl(general.logo.data.attributes.url)}
+          src={general.logo.data.attributes.url}
           alt="Smoking Hookah"
           width={0}
           height={0}
@@ -50,7 +50,7 @@ export async function Hero({
       </div>
       <div className="absolute w-full h-full inset-0 z-[1] bg-black/40" />
       <Image 
-        src={getStrapiUrl(hero.image.data.attributes.url)}
+        src={hero.image.data.attributes.url}
         alt={hero.title}
         width={0}
         height={0}

@@ -34,7 +34,7 @@ export function CTABanner({ banner }: { banner: TCTABanner }) {
           </Button>
         </div>
         <Image
-          src={getStrapiUrl(banner.image.data.attributes.url)}
+          src={banner.image.data.attributes.url}
           alt={banner.button.name}
           width={0}
           height={0}
