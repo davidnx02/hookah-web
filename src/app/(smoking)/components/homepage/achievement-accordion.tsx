@@ -21,7 +21,7 @@ export function AchievementAccordion({
       type="single"
       collapsible
       className={cn(
-        "md:max-w-[488px] w-full flex flex-col items-start justify-start gap-8"
+        "md:max-w-[488px] w-full flex flex-col items-start justify-start gap-8 relative z-10"
       )}
     >
       {achievements.map((achievement) => (

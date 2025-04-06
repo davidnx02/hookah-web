@@ -12,7 +12,7 @@ import { getStrapiUrl } from "@/lib/get-strapi-url";
 export function CTABanner({ banner }: { banner: TCTABanner }) {
   return (
     <section
-      className={cn("custom-section", "bg-[#111111] py-12 sm:py-14 lg:py-16")}
+      className={cn("custom-section", "bg-[#111111] py-12 sm:py-14 lg:py-16 relative z-10")}
     >
       <div
         className={cn(

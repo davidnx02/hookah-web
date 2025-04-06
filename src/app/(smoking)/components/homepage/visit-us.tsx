@@ -18,7 +18,21 @@ export function VisitUs({
   general: TGeneral;
 }) {
   return (
-    <section className={cn("custom-section", "py-16 sm:py-20 lg:py-24 px-0 sm:px-5", 'visit-us__section')}>
+    <section
+      className={cn(
+        "custom-section",
+        "py-16 sm:py-20 lg:py-24 px-0 sm:px-5 relative z-10",
+        "visit-us__section"
+      )}
+    >
+      <Image
+        src={"/smoke.png"}
+        alt="Dym"
+        width={0}
+        height={0}
+        className="absolute max-w-[1400px] z-0 h-auto w-full scale-x-[-1] -top-[300px] -left-[300px]"
+        sizes="1400px"
+      />
       <div
         className={cn(
           "custom-container",
@@ -28,15 +42,13 @@ export function VisitUs({
         <div className="md:max-w-[451px] w-full flex flex-col items-start justify-start gap-4 sm:gap-6 px-5 sm:px-0">
           <Heading title={data.title} />
           <HtmlContent
-            content={''}
+            content={""}
             className="flex flex-col items-start justify-start gap-4"
           />
           <div className="w-full grid grid-cols-2 gap-y-8 gap-x-6">
             <div className="w-full col-span-2 sm:col-span-1 flex items-start justify-start gap-4">
               <IconComponent
-                icon={
-                  <TbMapPinDown className="w-6 h-6 text-white" />
-                }
+                icon={<TbMapPinDown className="w-6 h-6 text-white" />}
               />
               <div className="flex flex-col items-start justify-start gap-4">
                 <h5 className="text-xl sm:text-2xl font-medium text-white font-heading">
@@ -57,9 +69,7 @@ export function VisitUs({
             </div>
             <div className="w-full col-span-2 sm:col-span-1 flex items-start justify-start gap-4 mb-4">
               <IconComponent
-                icon={
-                  <TbPhoneCall className="w-6 h-6 text-white" />
-                }
+                icon={<TbPhoneCall className="w-6 h-6 text-white" />}
               />
               <div className="flex flex-col items-start justify-start gap-4">
                 <h5 className="text-xl sm:text-2xl font-medium text-white font-heading">
@@ -91,9 +101,7 @@ export function VisitUs({
             </div>
             <div className="w-full col-span-2 flex items-start justify-start gap-4 mb-4">
               <IconComponent
-                icon={
-                  <TbClockCheck className="w-6 h-6 text-white" />
-                }
+                icon={<TbClockCheck className="w-6 h-6 text-white" />}
               />
               <div className="w-full flex flex-col items-start justify-start gap-4">
                 <h5 className="text-xl sm:text-2xl font-medium text-white font-heading">
@@ -102,32 +110,35 @@ export function VisitUs({
                 <div className="w-full flex flex-col items-start justify-start gap-2">
                   <div className="w-full flex items-center justify-between gap-4">
                     <p className="text-sm text-[#b9b9b9] whitespace-nowrap shrink-0">
-                    Pondelok - Štvrtok
+                      Pondelok - Štvrtok
                     </p>
                     <div className="flex-1 h-[1px] bg-primary" />
                     <p className="text-sm text-[#b9b9b9] whitespace-nowrap shrink-0">
-                    15:00 - 01:00
+                      15:00 - 01:00
                     </p>
                   </div>
                   <div className="w-full flex items-center justify-between gap-4">
                     <p className="text-sm text-[#b9b9b9] whitespace-nowrap shrink-0">
-                    Piatok - Nedeľa
+                      Piatok - Nedeľa
                     </p>
                     <div className="flex-1 h-[1px] bg-primary" />
                     <p className="text-sm text-[#b9b9b9] whitespace-nowrap shrink-0">
-                    15:00 - 02:00
+                      15:00 - 02:00
                     </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <Button
-            asChild
-            className="w-full sm:w-fit"
-          >
-            <Link prefetch={false} href={'https://www.google.sk/maps/place/SmoKing+hookah+lounge/@48.380157,17.5841667,129m/data=!3m1!1e3!4m6!3m5!1s0x476ca181ca917375:0xd052bb7e26dbeea9!8m2!3d48.3801748!4d17.584455!16s%2Fg%2F11flfcqzgf?hl=sk&entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoJLDEwMjExNjQwSAFQAw%3D%3D'} target="_blank">
-            Otvoriť navigáciu
+          <Button asChild className="w-full sm:w-fit">
+            <Link
+              prefetch={false}
+              href={
+                "https://www.google.sk/maps/place/SmoKing+hookah+lounge/@48.380157,17.5841667,129m/data=!3m1!1e3!4m6!3m5!1s0x476ca181ca917375:0xd052bb7e26dbeea9!8m2!3d48.3801748!4d17.584455!16s%2Fg%2F11flfcqzgf?hl=sk&entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoJLDEwMjExNjQwSAFQAw%3D%3D"
+              }
+              target="_blank"
+            >
+              Otvoriť navigáciu
             </Link>
           </Button>
         </div>
