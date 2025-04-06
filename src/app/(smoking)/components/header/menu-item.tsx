@@ -17,7 +17,7 @@ export function MenuItem({ link }: { link: TNavLink }) {
         prefetch={false}
         href={link.url}
         className={cn(
-          "text-xl font-bold py-1 px-2.5 font-heading",
+          "text-xl font-bold py-1 px-2.5 font-heading uppercase",
           isActive
             ? "text-primary bg-white cursor-context-menu"
             : "text-white bg-transparent"

@@ -5,6 +5,7 @@ import "../globals.css";
 import { cn } from "@/lib/utils";
 import { MaintananceScreen } from "./components/maintanance-screen";
 import { Header } from "./components/header";
+import { Footer } from "./components/footer";
 
 const barlow = Barlow_Condensed({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -56,6 +57,7 @@ export default function RootLayout({
         <Header />
         {/* <ContactBanner /> */}
         {children}
+        <Footer />
       </body>
     </html>
   );
