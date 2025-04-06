@@ -26,9 +26,9 @@ export function VisitUs({
         )}
       >
         <div className="md:max-w-[451px] w-full flex flex-col items-start justify-start gap-4 sm:gap-6 px-5 sm:px-0">
-          <Heading title='<span>NAVŠTÍVTE</span> NÁS' />
+          <Heading title={data.title} />
           <HtmlContent
-            content={'<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system.</p>'}
+            content={''}
             className="flex flex-col items-start justify-start gap-4"
           />
           <div className="w-full grid grid-cols-2 gap-y-8 gap-x-6">
@@ -140,8 +140,8 @@ export function VisitUs({
               )}
             />
             <Image
-              src={'/placeholder.png'}
-              alt={""}
+              src={data.image1.data.attributes.url}
+              alt={data.button.name ?? ""}
               width={0}
               height={0}
               className="absolute w-full h-full object-cover z-0 object-center"
@@ -156,8 +156,8 @@ export function VisitUs({
               )}
             />
             <Image
-              src={'/placeholder.png'}
-              alt={""}
+              src={data.image2.data.attributes.url}
+              alt={data.button.name ?? ""}
               width={0}
               height={0}
               className="absolute w-full h-full object-cover z-0 object-center"
