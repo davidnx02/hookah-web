@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 
 import { TNavLink } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { barlow } from "../../layout";
 
 export function MenuItem({ link }: { link: TNavLink }) {
   const pathname = usePathname();

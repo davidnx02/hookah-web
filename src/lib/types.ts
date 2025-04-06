@@ -189,3 +189,34 @@ export type TCTABanner = {
   };
   image: TImage;
 }
+
+export type Achievement = {
+  place: string;
+  name: string;
+  description: string;
+}
+
+export type TAchievement = {
+  title: string;
+  description: string;
+  achievements: Achievement[];
+  images: {
+    data: TImage[];
+  };
+}
+
+export type TVisitUs = {
+  title: string;
+  description: string;
+  hours_date_1: string;
+  hours_date_2: string;
+  hours_time_1: string;
+  hours_time_2: string;
+  image1: TImage;
+  image2: TImage;
+  button: {
+    name: string;
+    url: string;
+    variant: VariantProps<typeof buttonVariants>["variant"];
+  }
+}

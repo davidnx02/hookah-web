@@ -1,4 +1,4 @@
-import { TCTABanner, TGeneral, THero, TInfoSection, TStats } from "@/lib/types";
+import { TAchievement, TCTABanner, TGeneral, THero, TInfoSection, TStats, TVisitUs } from "@/lib/types";
 import { fetchAPI } from "@/lib/api";
 import { Stats } from "./components/homepage/stats";
 import { InfoSection } from "./components/shared/info-section";
@@ -45,6 +45,8 @@ export default async function Home() {
   const hero = (await fetchAPI("hero?populate=*")) as THero;
   const stat = (await fetchAPI("stat?populate=*")) as TStats;
   const ctaBanner = (await fetchAPI("cta-banner?populate=*")) as TCTABanner;
+  const achievements = (await fetchAPI("achievement?populate=*")) as TAchievement;
+  const visitUs = (await fetchAPI("visit-us?populate=*")) as TVisitUs;
   const infoSections = await fetchInfoSections("home");
 
   return (
@@ -63,9 +65,9 @@ export default async function Home() {
         ))}
       </section>
       <CTABanner banner={ctaBanner} />
-      <Achievements />
-      <Gallery />
-      <VisitUs />
+      <Achievements data={achievements} />
+      {/* <Gallery /> */}
+      <VisitUs data={visitUs} general={general} />
     </>
   );
 }

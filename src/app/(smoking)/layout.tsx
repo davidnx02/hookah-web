@@ -6,14 +6,14 @@ import { cn } from "@/lib/utils";
 import { MaintananceScreen } from "./components/maintanance-screen";
 import { Header } from "./components/header";
 
-export const barlow = Barlow_Condensed({
+const barlow = Barlow_Condensed({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
   variable: "--font-barlow",
   display: "swap",
 });
 
-export const poppins = Poppins({
+const poppins = Poppins({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   subsets: ["latin"],
   variable: "--font-poppins",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     viewport: "width=device-width, initial-scale=1",
 };
 
-const maintananceMode = true;
+const maintananceMode = false;
 
 export default function RootLayout({
   children,

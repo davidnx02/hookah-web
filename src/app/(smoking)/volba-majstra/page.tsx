@@ -5,13 +5,11 @@ import { fetchAPI } from "@/lib/api";
 import { TGeneral, TMaster } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
-import { SubpageHeading } from "../components/shared/subpage-heading";
 import { Heading } from "../components/shared/heading";
 import { getStrapiUrl } from "@/lib/get-strapi-url";
 import { Button } from "@/components/ui/button";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
-import { CoalDesign } from "../components/shared/coal-design";
-import { ReservationButton } from "../components/shared/reservation-button";
+
 
 type FetchResponse<T> = {
   data: T;
@@ -58,7 +56,7 @@ export default async function Page() {
 
   return (
     <>
-      <SubpageHeading
+      {/* <SubpageHeading
         title="VOĽBA MAJSTRA"
         breadcrumbs={{ name: "Voľba majstra", url: "volba-majstra" }}
         image={"/hookah.jpg"}
@@ -128,7 +126,7 @@ export default async function Page() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

@@ -4,10 +4,7 @@ import { fetchAPI } from "@/lib/api";
 import { TGeneral, TLemonade } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
-import { SubpageHeading } from "../components/shared/subpage-heading";
-import { Heading } from "../components/shared/heading";
-import { getStrapiUrl } from "@/lib/get-strapi-url";
-import { CoalDesign } from "../components/shared/coal-design";
+
 
 type FetchResponse<T> = {
   data: T;
@@ -50,7 +47,7 @@ export default async function Page() {
 
   return (
     <>
-      <SubpageHeading
+      {/* <SubpageHeading
         title="LIMONÁDY" // "Limonády"
         breadcrumbs={{ name: "Limonády", url: "limonady" }}
         image={"/limonady.jpg"}
@@ -112,7 +109,7 @@ export default async function Page() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

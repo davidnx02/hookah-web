@@ -1,5 +1,5 @@
 import { fetchAPI } from "@/lib/api";
-import { MenuList } from "../components/menu/menu-list";
+
 import { TCategory, TGeneral } from "@/lib/types";
 import { QueryProvider } from "../components/query-provider";
 
@@ -48,9 +48,9 @@ export default async function Page() {
 
   return (
     <>
-      <QueryProvider>
+      {/* <QueryProvider>
         <MenuList categories={categories} />
-      </QueryProvider>
+      </QueryProvider> */}
     </>
   );
 }
