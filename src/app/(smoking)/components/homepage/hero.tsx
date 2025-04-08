@@ -20,7 +20,7 @@ export async function Hero({
     <section
       className={cn(
         "custom-section",
-        "relative pt-[180px] lg:pt-48 lg:pb-48 pb-32"
+        "relative pt-[180px] lg:pt-48 lg:pb-48 pb-32 z-10"
       )}
     >
       <div className="flex flex-col items-center justify-center gap-8 relative z-10">

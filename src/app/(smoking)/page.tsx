@@ -1,13 +1,20 @@
-import { TAchievement, TCTABanner, TGeneral, THero, TInfoSection, TStats, TVisitUs } from "@/lib/types";
+import {
+  TAchievement,
+  TCTABanner,
+  TGeneral,
+  THero,
+  TStats,
+  TVisitUs,
+} from "@/lib/types";
 import { fetchAPI } from "@/lib/api";
 import { Stats } from "./components/homepage/stats";
 import { InfoSection } from "./components/shared/info-section";
 import { CTABanner } from "./components/homepage/cta-banner";
 import { Achievements } from "./components/homepage/achievements";
-import { Gallery } from "./components/homepage/gallery";
 import { VisitUs } from "./components/homepage/visit-us";
 import { Hero } from "./components/homepage/hero";
 import { cn, fetchInfoSections } from "@/lib/utils";
+import Image from "next/image";
 
 export async function generateMetadata() {
   const general = (await fetchAPI("general?populate=*")) as TGeneral;
@@ -45,7 +52,9 @@ export default async function Home() {
   const hero = (await fetchAPI("hero?populate=*")) as THero;
   const stat = (await fetchAPI("stat?populate=*")) as TStats;
   const ctaBanner = (await fetchAPI("cta-banner?populate=*")) as TCTABanner;
-  const achievements = (await fetchAPI("achievement?populate=*")) as TAchievement;
+  const achievements = (await fetchAPI(
+    "achievement?populate=*"
+  )) as TAchievement;
   const visitUs = (await fetchAPI("visit-us?populate=*")) as TVisitUs;
   const infoSections = await fetchInfoSections("home");
 
@@ -57,12 +66,20 @@ export default async function Home() {
         className={cn(
           "custom-section",
           "ea-homepage__info-section",
-          "gap-24 py-16 sm:py-20 lg:py-24"
+          "gap-24 py-16 sm:py-20 lg:py-24 relative"
         )}
       >
         {infoSections.map((section, index) => (
           <InfoSection key={section.id} section={section} index={index} />
         ))}
+        <Image
+          src={"/smoke.png"}
+          alt="Dym"
+          width={0}
+          height={0}
+          className="absolute max-w-[1400px] z-0 h-auto w-full -bottom-[250px] -right-[200px] opacity-65"
+          sizes="1400px"
+        />
       </section>
       <CTABanner banner={ctaBanner} />
       <Achievements data={achievements} />
