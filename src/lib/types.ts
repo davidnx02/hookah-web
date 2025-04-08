@@ -220,3 +220,15 @@ export type TVisitUs = {
     variant: VariantProps<typeof buttonVariants>["variant"];
   }
 }
+
+export type TShishaPage = {
+  name: string;
+  image: TImage;
+  brands: {
+    data: TImage[];
+  };
+  offers: {
+    name: string;
+    description: string;
+  }[];
+};

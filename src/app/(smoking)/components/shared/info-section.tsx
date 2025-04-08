@@ -11,12 +11,14 @@ import { Heading } from "./heading";
 export function InfoSection({
   section,
   index,
+  leftContent,
+  rightContent,
 }: {
   section: TInfoSection;
   index: number;
+  leftContent?: React.ReactNode;
+  rightContent?: React.ReactNode;
 }) {
-  console.log(section);
-
   return (
     <div
       className={cn(
@@ -42,40 +44,47 @@ export function InfoSection({
             </Link>
           </Button>
         )}
+        {leftContent && leftContent}
       </div>
+
       <div className="flex items-start justify-center md:max-w-[510px] gap-6 w-full">
-        <div className="basis-1/2 w-full relative h-[310px] sm:h-[400px] lg:h-[433px]">
-          <div
-            className={cn(
-              "absolute w-full h-full z-[1]",
-              "bg-gradient-to-t from-black/80 to-black/20"
-            )}
-          />
-          <Image
-            src={section.image1.url}
-            alt={section.button?.name ?? ""}
-            width={0}
-            height={0}
-            className="absolute w-full h-full object-cover z-0 object-center"
-            sizes="(max-width: 640px) 45vw, 245px"
-          />
-        </div>
-        <div className="basis-1/2 w-full relative h-[310px] sm:h-[400px] lg:h-[433px] mt-6 sm:mt-8">
-          <div
-            className={cn(
-              "absolute w-full h-full z-[1]",
-              "bg-gradient-to-t from-black/80 to-black/20"
-            )}
-          />
-          <Image
-            src={section.image2.url}
-            alt={section.button?.name ?? ""}
-            width={0}
-            height={0}
-            className="absolute w-full h-full object-cover z-0 object-center"
-            sizes="(max-width: 640px) 45vw, 245px"
-          />
-        </div>
+        {section.image1 && section.image2 && (
+          <>
+            <div className="basis-1/2 w-full relative h-[310px] sm:h-[400px] lg:h-[433px]">
+              <div
+                className={cn(
+                  "absolute w-full h-full z-[1]",
+                  "bg-gradient-to-t from-black/80 to-black/20"
+                )}
+              />
+              <Image
+                src={section.image1.url}
+                alt={section.button?.name ?? ""}
+                width={0}
+                height={0}
+                className="absolute w-full h-full object-cover z-0 object-center"
+                sizes="(max-width: 640px) 45vw, 245px"
+              />
+            </div>
+            <div className="basis-1/2 w-full relative h-[310px] sm:h-[400px] lg:h-[433px] mt-6 sm:mt-8">
+              <div
+                className={cn(
+                  "absolute w-full h-full z-[1]",
+                  "bg-gradient-to-t from-black/80 to-black/20"
+                )}
+              />
+              <Image
+                src={section.image2.url}
+                alt={section.button?.name ?? ""}
+                width={0}
+                height={0}
+                className="absolute w-full h-full object-cover z-0 object-center"
+                sizes="(max-width: 640px) 45vw, 245px"
+              />
+            </div>
+          </>
+        )}
+        {rightContent && rightContent}
       </div>
     </div>
   );
