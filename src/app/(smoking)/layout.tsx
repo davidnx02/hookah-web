@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Barlow_Condensed, Poppins } from "next/font/google";
 import "../globals.css";
 import { cn } from "@/lib/utils";
-import { MaintananceScreen } from "./components/maintanance-screen";
+import { MaintenanceScreen } from "./components/maintenance-screen";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 
@@ -28,18 +28,18 @@ export const metadata: Metadata = {
     viewport: "width=device-width, initial-scale=1",
 };
 
-const maintananceMode = true;
+const maintenanceMode = true;
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  if (maintananceMode) {
+  if (maintenanceMode) {
     return (
       <html>
         <body className={cn(barlow.className)}>
-          <MaintananceScreen />
+          <MaintenanceScreen />
         </body>
       </html>
     );

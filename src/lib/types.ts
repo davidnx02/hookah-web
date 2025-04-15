@@ -221,14 +221,17 @@ export type TVisitUs = {
   }
 }
 
+export type TPriceOffer = {
+  name: string;
+  description: string;
+  price: number;
+}
+
 export type TShishaPage = {
   name: string;
   image: TImage;
   brands: {
     data: TImage[];
   };
-  offers: {
-    name: string;
-    description: string;
-  }[];
+  offers: TPriceOffer[];
 };

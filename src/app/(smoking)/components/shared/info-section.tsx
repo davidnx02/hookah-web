@@ -13,18 +13,23 @@ export function InfoSection({
   index,
   leftContent,
   rightContent,
+  className
 }: {
   section: TInfoSection;
   index: number;
   leftContent?: React.ReactNode;
   rightContent?: React.ReactNode;
+  className?: {
+    container?: string;
+  }
 }) {
   return (
     <div
       className={cn(
         "custom-container",
         "flex flex-col items-start justify-start md:items-center md:justify-between gap-12 lg:gap-16",
-        index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+        index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse",
+        className?.container,
       )}
     >
       <div className="md:max-w-[451px] w-full flex flex-col items-start justify-start gap-4 sm:gap-6 px-5 sm:px-0">
@@ -48,7 +53,7 @@ export function InfoSection({
       </div>
 
       <div className="flex items-start justify-center md:max-w-[510px] gap-6 w-full">
-        {section.image1 && section.image2 && (
+        {section.image1.url && section.image2.url && (
           <>
             <div className="basis-1/2 w-full relative h-[310px] sm:h-[400px] lg:h-[433px]">
               <div
