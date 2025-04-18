@@ -223,7 +223,7 @@ export type TVisitUs = {
 
 export type TPriceOffer = {
   name: string;
-  description: string;
+  description?: string;
   price: number;
 }
 
@@ -235,3 +235,28 @@ export type TShishaPage = {
   };
   offers: TPriceOffer[];
 };
+
+export type TPreviewCard = {
+  name: string;
+  description: string;
+  image: TImage;
+};
+
+export type TDrinkPage = {
+  name: string;
+  image: TImage;
+  offers: TPriceOffer[];
+}
+
+export type TCourse = {
+  name: string;
+  price: string;
+  description: string;
+  image: TImage;
+}
+
+export type TCoursePage = {
+  name: string;
+  image: TImage;
+  courses: TCourse[];
+}

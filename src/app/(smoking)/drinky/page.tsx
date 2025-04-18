@@ -1,22 +1,25 @@
-import { fetchAPI } from "@/lib/api";
 import { SubpageHeading } from "../components/shared/subpage-heading";
-import { TMaster, TShishaPage } from "@/lib/types";
 import { cn, fetchInfoSections } from "@/lib/utils";
+import { fetchAPI } from "@/lib/api";
+import { TDrinkPage, TPreviewCard } from "@/lib/types";
 import { InfoSection } from "../components/shared/info-section";
 import { PricesTable } from "../components/shared/prices-table";
 import { Heading } from "../components/shared/heading";
 import { PreviewCard } from "../components/shared/preview-card";
 
 export default async function Page() {
-  const masters = (await fetchAPI("masters?populate=*").then(
+  const lemonades = (await fetchAPI("lemonades?populate=*").then(
     (r) => r.data
-  )) as TMaster[];
-  const page = (await fetchAPI("shisha-page?populate=*")) as TShishaPage;
-  const infoSections = await fetchInfoSections("vodne-fajky");
+  )) as TPreviewCard[];
+  const page = (await fetchAPI("drink-page?populate=*")) as TDrinkPage;
+  const infoSections = await fetchInfoSections("drinky");
 
   return (
     <>
-      <SubpageHeading name="Vodné fajky" image={page.image.data.attributes.url} />
+      <SubpageHeading
+        name={page.name}
+        image={page.image.data.attributes.url}
+      />
       <section className={cn("custom-section", "py-20 sm:py-24")}>
         {infoSections.map((section, index) => (
           <InfoSection
@@ -36,7 +39,7 @@ export default async function Page() {
           )}
         >
           <div className="max-w-[657px] w-full text-center flex flex-col items-center justify-center gap-4 sm:gap-5 lg:gap-6">
-            <Heading title="VOĽBA MASJTRA" />
+            <Heading title="LIMONÁDY" />
             <p className="text-sm sm:text-base text-center text-[#B9B9B9] leading-loose sm:leading-loose">
               But I must explain to you how all this mistaken idea of denouncing
               pleasure and praising pain was born and I will give you a complete
@@ -44,11 +47,8 @@ export default async function Page() {
             </p>
           </div>
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {masters.map((master) => (
-              <PreviewCard
-                key={master.attributes.name}
-                item={master}
-              />
+            {lemonades.map((lemonade) => (
+              <PreviewCard key={lemonade.name} item={lemonade as any} />
             ))}
           </div>
         </div>

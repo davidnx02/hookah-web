@@ -4,7 +4,7 @@ import type { TPreviewCard } from "@/lib/types";
 
 import { cn } from "@/lib/utils";
 
-export function PreviewCard({ item }: { item: TPreviewCard }) {
+export function PreviewCard({ item }: { item: { attributes: TPreviewCard; } }) {
   return (
     <div
       className={cn(
@@ -14,14 +14,14 @@ export function PreviewCard({ item }: { item: TPreviewCard }) {
     >
       <div
         className={cn(
-          "absolute w-full left-0 top-6 translate-y-[200%] z-10 flex flex-col items-center justify-center gap-6",
+          "absolute w-full left-0 top-12 translate-y-[220%] z-10 flex flex-col items-center justify-center gap-6 px-6",
           "group-hover:translate-y-0 transition-all"
         )}
       >
-        <h3 className="font-heading text-4xl font-medium text-center z-10 relative text-accent">
-          {item.name}
+        <h3 className="font-heading text-3xl font-medium text-center z-10 relative text-accent">
+          {item.attributes.name}
         </h3>
-        <p className="w-full text-center text-[#B9B9B9]">
+        <p className="w-full text-center text-[#B9B9B9] text-sm">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
           ab illo inventore veritatis et quasi architecto beatae vitae dicta
@@ -30,13 +30,13 @@ export function PreviewCard({ item }: { item: TPreviewCard }) {
       </div>
       <div
         className={cn(
-          "absolute w-full h-full inset-0 z-[1] opacity-0 bg-black/70 backdrop-blur-sm transition-all",
-          "group-hover:opacity-100"
+          "absolute w-full h-full inset-0 z-[1] opacity-50 bg-black/70 transition-all",
+          "group-hover:opacity-100 group-hover:backdrop-blur-sm"
         )}
       />
       <Image
-        src={item.image.data.attributes.url}
-        alt={item.name}
+        src={item.attributes.image.data.attributes.url}
+        alt={item.attributes.name}
         width={0}
         height={0}
         className="absolute w-full h-full inset-0 z-0 object-cover object-center"

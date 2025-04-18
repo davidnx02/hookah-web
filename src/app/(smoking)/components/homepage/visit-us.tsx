@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import { Heading } from "../shared/heading";
 import { HtmlContent } from "../shared/html-content";
 import { Button } from "@/components/ui/button";
-import { getStrapiUrl } from "@/lib/get-strapi-url";
 
 import { TbClockCheck, TbMapPinDown, TbPhoneCall } from "react-icons/tb";
 
@@ -25,14 +24,6 @@ export function VisitUs({
         "visit-us__section"
       )}
     >
-      <Image
-        src={"/smoke.png"}
-        alt="Dym"
-        width={0}
-        height={0}
-        className="absolute max-w-[1400px] z-0 h-auto w-full scale-x-[-1] -top-[300px] -left-[300px]"
-        sizes="1400px"
-      />
       <div
         className={cn(
           "custom-container",
@@ -42,7 +33,9 @@ export function VisitUs({
         <div className="md:max-w-[451px] w-full flex flex-col items-start justify-start gap-4 sm:gap-6 px-5 sm:px-0">
           <Heading title={data.title} />
           <HtmlContent
-            content={""}
+            content={
+              "<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system.</p>"
+            }
             className="flex flex-col items-start justify-start gap-4"
           />
           <div className="w-full grid grid-cols-2 gap-y-8 gap-x-6">

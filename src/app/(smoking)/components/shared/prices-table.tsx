@@ -1,7 +1,7 @@
 export function PricesTable({
   offers,
 }: {
-  offers: { name: string; description: string; price: number }[];
+  offers: { name: string; description?: string; price: number }[];
 }) {
   return (
     <div className="max-w-[460px] w-full px-4 sm:px-6 lg:px-8 py-8 bg-[#111112] flex flex-col items-start justify-start gap-4 relative z-10">
@@ -25,9 +25,11 @@ export function PricesTable({
               {offer.price}€
             </p>
           </div>
-          <p className="text-xs text-[#B9B9B9] font-normal">
-            {offer.description}
-          </p>
+          {offer.description && (
+            <p className="text-xs text-[#B9B9B9] font-normal">
+              {offer.description}
+            </p>
+          )}
         </div>
       ))}
     </div>
