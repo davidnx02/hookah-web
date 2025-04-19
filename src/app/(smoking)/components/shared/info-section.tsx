@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import { TInfoSection } from "@/lib/types";
 import { HtmlContent } from "./html-content";
 import { Button } from "@/components/ui/button";
-import { getStrapiUrl } from "@/lib/get-strapi-url";
 import { Heading } from "./heading";
 
 export function InfoSection({

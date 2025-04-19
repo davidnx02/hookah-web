@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-const flattenRichTextToHTML = (richText: any[], includeParagraphs: boolean = true): string => {
+export const flattenRichTextToHTML = (richText: any[], includeParagraphs: boolean = true): string => {
   return richText
     .map((block) => {
       if (block.type === "paragraph") {

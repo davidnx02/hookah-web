@@ -68,6 +68,15 @@
     }
   }
 
+  .hide-scroll-bar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   html {
     @apply overflow-x-hidden;
   }
@@ -189,3 +198,11 @@
   .swiper-pagination > span.swiper-pagination-bullet-active {
     @apply bg-primary !important;
   } */
+
+  .ea-skola-majstra__section {
+    @apply px-0 sm:px-6 !important;
+  }
+
+  .course-modal__content .html-content ul {
+    @apply mt-6 sm:mt-8 !important;
+  }

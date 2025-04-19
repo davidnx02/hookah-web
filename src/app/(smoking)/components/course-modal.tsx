@@ -1,10 +1,14 @@
 "use client";
 
+import Image from "next/image";
+
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { TCourse } from "@/lib/types";
 import { useMediaQuery } from "@/lib/use-media-query";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { HtmlContent } from "./shared/html-content";
+import { cn, flattenRichTextToHTML } from "@/lib/utils";
 
 export function CourseModal({ courses }: { courses: TCourse[] }) {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -29,8 +33,35 @@ export function CourseModal({ courses }: { courses: TCourse[] }) {
             </div>
             <MdOutlineKeyboardArrowRight size={24} className="text-white" />
           </Trigger>
-          <Content side={'bottom'} className="p-0 bg-black flex items-center justify-center md:max-w-[600px] h-[400px] border-none">
-            <p className="text-4xl text-white font-heading font-medium">{course.name}</p>
+          <Content
+            side={"bottom"}
+            className={cn(
+              "p-0 bg-black flex flex-col items-start justify-start md:max-w-[800px] border-none overflow-y-scroll max-h-[90vh] md:max-h-[80vh] rounded-none",
+              "course-modal__content",
+              "hide-scroll-bar"
+            )}
+          >
+            <Image
+              src={course.image.data.attributes.url}
+              alt={course.name}
+              width={0}
+              height={0}
+              className="w-full h-[220px] sm:h-[280px] object-cover object-center"
+              sizes="600px"
+            />
+            <div className="w-full flex flex-col items-start justify-start gap-8 px-6 py-8">
+              <div className="w-full flex flex-col items-start justify-start sm:flex-row  sm:items-center sm:justify-between gap-2 sm:gap-4">
+                <h4 className="text-4xl font-medium uppercase text-white font-heading">
+                  {course.name}
+                </h4>
+                <span className="font-heading font-medium text-2xl sm:text-3xl text-accent whitespace-nowrap">
+                  {course.price}
+                </span>
+              </div>
+              <HtmlContent
+                content={flattenRichTextToHTML(course.description as any)}
+              />
+            </div>
           </Content>
         </Wrapper>
       ))}
