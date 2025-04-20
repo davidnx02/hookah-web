@@ -113,7 +113,12 @@ export type TItem = {
     category: {
       data: {
         id: number;
-        attributes: TCategory;
+        attributes: {
+          name: string;
+          slug: string;
+          background: TImage;
+          description?: string;
+        };
       };
     };
   };
