@@ -37,7 +37,7 @@ export function MenuModal({
       <Content
         side={"bottom"}
         className={cn(
-          "p-0 bg-black flex flex-col items-center justify-center w-full border-none overflow-y-scroll max-h-[90vh] md:max-h-[80vh] rounded-none md:max-w-[460px]",
+          "p-0 bg-black flex flex-col items-center justify-center w-full border-none overflow-y-scroll max-h-[88vh] md:max-h-[80vh] rounded-none md:max-w-[460px]",
           "course-modal__content",
           "hide-scroll-bar"
         )}

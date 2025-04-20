@@ -18,7 +18,7 @@ export default async function Page() {
   return (
     <>
       <SubpageHeading name={page.name} image={page.image.data.attributes.url} />
-      <section className={cn("custom-section", "py-20 sm:py-24 relative")}>
+      <section className={cn("custom-section", "py-20 sm:py-24 relative !px-0")}>
         <Image
           src={"/smoke.png"}
           alt="Dym"
@@ -52,12 +52,12 @@ export default async function Page() {
             "flex flex-col items-center justify-center gap-12 sm:gap-14 lg:gap-16"
           )}
         >
-          <div className="max-w-[657px] w-full text-center flex flex-col items-center justify-center gap-4 sm:gap-5 lg:gap-6">
+          <div className="max-w-[740px] w-full text-center flex flex-col items-center justify-center gap-4 sm:gap-5 lg:gap-6">
             <Heading title="LIMONÁDY" />
             <p className="text-sm sm:text-base text-center text-[#B9B9B9] leading-loose sm:leading-loose">
-              But I must explain to you how all this mistaken idea of denouncing
-              pleasure and praising pain was born and I will give you a complete
-              account of the system.
+              Naše limonády v Smoking Hookah Lounge sú svieže, plné ovocných
+              chutí a originálnych kombinácií, ako broskyňa s čajom pu-erh či
+              mango s kokosom. <br></br><br></br>Každý si u nás nájde tú svoju osviežujúcu chuť!
             </p>
           </div>
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

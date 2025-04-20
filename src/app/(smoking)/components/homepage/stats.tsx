@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export async function Stats({ stats }: { stats: TStat[] }) {
   return (
     <section
-      className={cn("custom-section", "py-16 relative")}
+      className={cn("custom-section", "pb-4 pt-8 sm:pb-16 relative")}
     >
       <Image
         src={"/smoke.png"}

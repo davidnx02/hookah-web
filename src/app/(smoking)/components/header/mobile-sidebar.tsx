@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { LucideMenu, LucideX } from "lucide-react";
 
 import { TNavigation } from "@/lib/types";
@@ -10,7 +12,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import Link from "next/link";
+
 import { TbPhoneCall } from "react-icons/tb";
 
 export function MobileSidebar({ menu }: { menu: TNavigation }) {
@@ -22,7 +24,7 @@ export function MobileSidebar({ menu }: { menu: TNavigation }) {
       </SheetTrigger>
       <SheetContent
         side={"left"}
-        className="w-[80vw] border-none shadow-none flex flex-col items-start gap-6 justify-start bg-[#040405] px-5 pt-20"
+        className="w-[80vw] border-none shadow-none flex flex-col items-start gap-6 justify-start bg-[#040405] px-5 pt-32"
       >
         <SheetClose asChild>
           <LucideX className="absolute top-6 right-5 text-white/75" />
@@ -33,7 +35,7 @@ export function MobileSidebar({ menu }: { menu: TNavigation }) {
               <Link
                 prefetch={false}
                 href={link.url}
-                className="text-lg text-white"
+                className="text-xl text-white"
               >
                 {link.name}
               </Link>

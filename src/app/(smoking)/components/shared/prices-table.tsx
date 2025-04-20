@@ -1,14 +1,19 @@
+import { cn } from "@/lib/utils";
+
 export function PricesTable({
   offers,
 }: {
   offers: { name: string; description?: string; price: number }[];
 }) {
   return (
-    <div className="max-w-[460px] w-full px-4 sm:px-6 lg:px-8 py-8 bg-[#111112] flex flex-col items-start justify-start gap-4 relative z-10">
-      {offers.map((offer) => (
+    <div className="max-w-[460px] w-full px-5 lg:px-8 py-8 bg-[#111112] flex flex-col items-start justify-start gap-4 relative z-10">
+      {offers.map((offer, index) => (
         <div
           key={offer.name}
-          className="w-full flex flex-col items-start justify-start gap-2"
+          className={cn(
+            "w-full flex flex-col items-start justify-start gap-2",
+            index !== offers.length - 1 && "border-b border-white/30 pb-4"
+          )}
         >
           <div className="w-full flex items-end justify-between gap-0.5">
             <p className="text-lg sm:text-xl lg:text-2xl font-heading text-white font-normal whitespace-nowrap">
