@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export async function Stats({ stats }: { stats: TStat[] }) {
   return (
     <section
-      className={cn("custom-section", "pt-16 sm:pt-20 lg:pt-24 relative")}
+      className={cn("custom-section", "py-16 relative")}
     >
       <Image
         src={"/smoke.png"}
@@ -19,13 +19,13 @@ export async function Stats({ stats }: { stats: TStat[] }) {
       <div
         className={cn(
           "custom-container",
-          "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8"
+          "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-[1px] gap-x-[1px] bg-white/20"
         )}
       >
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="flex flex-col items-center justify-center gap-1 text-center col-span-1"
+            className="flex flex-col items-center justify-center gap-1 text-center col-span-1 bg-[#040405] py-8 lg:py-0"
           >
             <strong className="text-[40px] font-semibold text-white">
               {stat.value}

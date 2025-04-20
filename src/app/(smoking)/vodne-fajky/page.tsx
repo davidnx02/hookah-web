@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { fetchAPI } from "@/lib/api";
 import { SubpageHeading } from "../components/shared/subpage-heading";
 import { TMaster, TShishaPage } from "@/lib/types";
@@ -16,8 +18,19 @@ export default async function Page() {
 
   return (
     <>
-      <SubpageHeading name="Vodné fajky" image={page.image.data.attributes.url} />
-      <section className={cn("custom-section", "py-20 sm:py-24")}>
+      <SubpageHeading
+        name="Vodné fajky"
+        image={page.image.data.attributes.url}
+      />
+      <section className={cn("custom-section", "py-20 sm:py-24 relative")}>
+        <Image
+          src={"/smoke.png"}
+          alt="Dym"
+          width={0}
+          height={0}
+          className="absolute max-w-[1200px] z-0 h-auto w-full -top-[100px] -left-[200px] opacity-65 scale-x-[-1]"
+          sizes="1200px"
+        />
         {infoSections.map((section, index) => (
           <InfoSection
             key={index}
@@ -28,7 +41,15 @@ export default async function Page() {
           />
         ))}
       </section>
-      <section className={cn("custom-section", "pb-20 sm:pb-24")}>
+      <section className={cn("custom-section", "pb-20 sm:pb-24 relative")}>
+        <Image
+          src={"/smoke.png"}
+          alt="Dym"
+          width={0}
+          height={0}
+          className="absolute max-w-[1200px] z-0 h-auto w-full top-[100px] -right-[200px] opacity-65"
+          sizes="1200px"
+        />
         <div
           className={cn(
             "custom-container",
@@ -45,10 +66,7 @@ export default async function Page() {
           </div>
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {masters.map((master) => (
-              <PreviewCard
-                key={master.attributes.name}
-                item={master}
-              />
+              <PreviewCard key={master.attributes.name} item={master} />
             ))}
           </div>
         </div>

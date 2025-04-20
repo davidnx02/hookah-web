@@ -14,10 +14,10 @@ export async function Footer() {
     <section
       className={cn(
         "custom-section",
-        "pt-12 bg-[#0A0A0B] border-t border-t-white/10 pb-6 sm:pb-8"
+        "pt-12 bg-[#0A0A0B] border-t border-t-white/10 pb-14 sm:pb-14"
       )}
     >
-      <div
+      {/* <div
         className={cn(
           "custom-container",
           "flex flex-col items-center justify-center gap-12 sm:gap-16"
@@ -56,6 +56,34 @@ export async function Footer() {
               </Link>
             ))}
           </div>
+        </div>
+      </div> */}
+      <div
+        className={cn(
+          "custom-container",
+          "flex flex-col items-center justify-center gap-8 sm:flex-row sm:items-center sm:justify-between"
+        )}
+      >
+        <Link prefetch={false} href={"/"}>
+          <Image
+            src={general.logo.data.attributes.url}
+            alt="Smoking Hookah"
+            width={0}
+            height={0}
+            className="w-16 h-16 sm:w-20 sm:h-20 p-1 bg-white rounded-full object-cover"
+          />
+        </Link>
+        <div className="flex items-center justify-center flex-col sm:flex-row sm:items-center sm:justify-end gap-2 sm:gap-6 md:gap-8">
+          {menu.links.map((item) => (
+            <Link
+              prefetch={false}
+              href={item.url}
+              key={item.name}
+              className="text-white text-lg md:text-xl font-medium uppercase font-heading text-center"
+            >
+              {item.name}
+            </Link>
+          ))}
         </div>
       </div>
     </section>

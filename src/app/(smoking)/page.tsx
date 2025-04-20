@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import {
   TAchievement,
   TCTABanner,
@@ -14,7 +16,6 @@ import { Achievements } from "./components/homepage/achievements";
 import { VisitUs } from "./components/homepage/visit-us";
 import { Hero } from "./components/homepage/hero";
 import { cn, fetchInfoSections } from "@/lib/utils";
-import Image from "next/image";
 
 export async function generateMetadata() {
   const general = (await fetchAPI("general?populate=*")) as TGeneral;
@@ -61,16 +62,28 @@ export default async function Home() {
   return (
     <>
       <Hero general={general} hero={hero} />
-      <Stats stats={stat.stat} />
       <section
         className={cn(
           "custom-section",
           "ea-homepage__info-section",
-          "gap-24 py-16 sm:py-20 lg:py-24 relative"
+          "gap-12 sm:gap-16 md:gap-20 lg:gap-24 py-16 sm:py-20 lg:py-24 relative"
         )}
       >
+        <Image
+          src={"/smoke.png"}
+          alt="Dym"
+          width={0}
+          height={0}
+          className="absolute max-w-[1200px] z-0 h-auto w-full -top-[50px] -left-[200px] opacity-65"
+          sizes="1200px"
+        />
         {infoSections.map((section, index) => (
-          <InfoSection key={section.id} section={section} index={index} />
+          <>
+            <InfoSection key={section.id} section={section} index={index} />
+            {index === 0 && (
+              <div className="custom-container h-[1px] bg-white/20" />
+            )}
+          </>
         ))}
         <Image
           src={"/smoke.png"}
@@ -83,6 +96,7 @@ export default async function Home() {
       </section>
       <CTABanner banner={ctaBanner} />
       <Achievements data={achievements} />
+      <Stats stats={stat.stat} />
       {/* <Gallery /> */}
       <VisitUs data={visitUs} general={general} />
     </>

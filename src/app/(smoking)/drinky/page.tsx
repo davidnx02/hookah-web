@@ -6,6 +6,7 @@ import { InfoSection } from "../components/shared/info-section";
 import { PricesTable } from "../components/shared/prices-table";
 import { Heading } from "../components/shared/heading";
 import { PreviewCard } from "../components/shared/preview-card";
+import Image from "next/image";
 
 export default async function Page() {
   const lemonades = (await fetchAPI("lemonades?populate=*").then(
@@ -16,11 +17,16 @@ export default async function Page() {
 
   return (
     <>
-      <SubpageHeading
-        name={page.name}
-        image={page.image.data.attributes.url}
-      />
-      <section className={cn("custom-section", "py-20 sm:py-24")}>
+      <SubpageHeading name={page.name} image={page.image.data.attributes.url} />
+      <section className={cn("custom-section", "py-20 sm:py-24 relative")}>
+        <Image
+          src={"/smoke.png"}
+          alt="Dym"
+          width={0}
+          height={0}
+          className="absolute max-w-[1200px] z-0 h-auto w-full -top-[100px] -left-[200px] opacity-65 scale-x-[-1]"
+          sizes="1200px"
+        />
         {infoSections.map((section, index) => (
           <InfoSection
             key={index}
@@ -31,7 +37,15 @@ export default async function Page() {
           />
         ))}
       </section>
-      <section className={cn("custom-section", "pb-20 sm:pb-24")}>
+      <section className={cn("custom-section", "pb-20 sm:pb-24 relative")}>
+        <Image
+          src={"/smoke.png"}
+          alt="Dym"
+          width={0}
+          height={0}
+          className="absolute max-w-[1200px] z-0 h-auto w-full top-[100px] -right-[200px] opacity-65"
+          sizes="1200px"
+        />
         <div
           className={cn(
             "custom-container",

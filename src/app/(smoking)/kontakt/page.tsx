@@ -11,7 +11,7 @@ export default async function Page() {
   return (
     <>
       <SubpageHeading name={page.name} image={page.image.data.attributes.url} />
-      <VisitUs data={visitUs} general={general} />
+      <VisitUs data={visitUs} general={general} showSmoke />
     </>
   );
 }

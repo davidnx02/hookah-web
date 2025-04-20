@@ -14,8 +14,6 @@ export async function Hero({
   hero: THero;
   general: TGeneral;
 }) {
-  console.log(general.logo.data.attributes.url);
-
   return (
     <section
       className={cn(
@@ -34,7 +32,7 @@ export async function Hero({
         />
         <h1 className="uppercase text-4xl sm:text-5xl font-bold text-center text-white flex flex-col font-heading items-center justify-center gap-2">
           <span className="bg-white py-1 px-6 text-primary w-fit">
-            SMOOKING HOOKAH
+            SMOKING HOOKAH
           </span>
           {hero.title}
         </h1>
@@ -48,7 +46,7 @@ export async function Hero({
           ))}
         </div>
       </div>
-      <div className="absolute w-full h-full inset-0 z-[1] bg-black/40" />
+      <div className="absolute w-full h-full inset-0 z-[1] bg-black/50" />
       <Image 
         src={hero.image.data.attributes.url}
         alt={hero.title}

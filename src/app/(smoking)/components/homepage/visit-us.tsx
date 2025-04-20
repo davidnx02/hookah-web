@@ -12,9 +12,11 @@ import { TbClockCheck, TbMapPinDown, TbPhoneCall } from "react-icons/tb";
 export function VisitUs({
   data,
   general,
+  showSmoke = false,
 }: {
   data: TVisitUs;
   general: TGeneral;
+  showSmoke?: boolean;
 }) {
   return (
     <section
@@ -24,6 +26,16 @@ export function VisitUs({
         "visit-us__section"
       )}
     >
+      {showSmoke && (
+        <Image
+          src={"/smoke.png"}
+          alt="Dym"
+          width={0}
+          height={0}
+          className="absolute max-w-[1200px] z-0 h-auto w-full -top-[100px] -left-[200px] opacity-65 scale-x-[-1]"
+          sizes="1200px"
+        />
+      )}
       <div
         className={cn(
           "custom-container",
@@ -140,7 +152,7 @@ export function VisitUs({
             <div
               className={cn(
                 "absolute w-full h-full z-[1]",
-                "bg-gradient-to-t from-black/80 to-black/20"
+                "bg-gradient-to-t from-black/50 to-black/10"
               )}
             />
             <Image
@@ -156,7 +168,7 @@ export function VisitUs({
             <div
               className={cn(
                 "absolute w-full h-full z-[1]",
-                "bg-gradient-to-t from-black/80 to-black/20"
+                "bg-gradient-to-t from-black/50 to-black/10"
               )}
             />
             <Image

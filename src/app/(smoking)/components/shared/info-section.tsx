@@ -58,7 +58,7 @@ export function InfoSection({
               <div
                 className={cn(
                   "absolute w-full h-full z-[1]",
-                  "bg-gradient-to-t from-black/80 to-black/20"
+                  "bg-gradient-to-t from-black/50 to-black/10"
                 )}
               />
               <Image
@@ -74,7 +74,7 @@ export function InfoSection({
               <div
                 className={cn(
                   "absolute w-full h-full z-[1]",
-                  "bg-gradient-to-t from-black/80 to-black/20"
+                  "bg-gradient-to-t from-black/50 to-black/10"
                 )}
               />
               <Image

@@ -1,10 +1,9 @@
 import { fetchAPI } from "@/lib/api";
-
-import { TCategory, TGeneral } from "@/lib/types";
-import { QueryProvider } from "../components/query-provider";
+import { TCategory, TGeneral, TItem } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import { SubpageHeading } from "../components/shared/subpage-heading";
+import { MenuModal } from "../components/menu-modal";
+import Image from "next/image";
 
 type FetchResponse<T> = {
   data: T;
@@ -46,36 +45,55 @@ export default async function Page() {
   const response: FetchResponse<TCategory[]> = await fetchAPI(
     "categories?populate=*"
   );
-  const categories = response.data.filter(category => category.attributes.name !== 'Voľba majstra');
+  const categories = response.data.filter(
+    (category) => category.attributes.name !== "Voľba majstra"
+  );
+
+  const itemsRes: FetchResponse<TItem[]> = await fetchAPI(
+    "items?populate=*&pagination[pageSize]=50"
+  );
+  const items = itemsRes.data;
+
+  console.log(items.length);
 
   return (
     <>
-    <SubpageHeading image={'/menu2.png'} name='MENU' />
-      <section className={cn("custom-section", "py-20 sm:py-24")}>
+      <SubpageHeading image={"/menu2.png"} name="MENU" />
+      <section className={cn("custom-section", "py-20 sm:py-24 relative")}>
+        <Image
+          src={"/smoke.png"}
+          alt="Dym"
+          width={0}
+          height={0}
+          className="absolute max-w-[1200px] z-0 h-auto w-full -top-[50px] -left-[200px] opacity-65 scale-x-[-1]"
+          sizes="1200px"
+        />
         <div
           className={cn(
             "custom-container",
-            "grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-3 lg:gap-6"
+            "grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-3 lg:gap-6 relative z-10"
           )}
         >
-          {categories.map((category) => (
-            <div
-              key={category.attributes.name}
-              className={cn(
-                "aspect-square bg-[#151515] col-span-1 w-full flex flex-col items-center justify-center gap-2 sm:gap-4"
-              )}
-            >
-              <Image
-                src={category.attributes.background.data.attributes.url}
-                alt={category.attributes.name}
-                width={100}
-                height={100}
+          {categories.map((category) => {
+            // Filter items for the current category
+            const categoryItems = items.filter(
+              (item) =>
+                item?.attributes?.category?.data?.attributes?.slug ===
+                category.attributes.slug
+            );
+
+            return (
+              <MenuModal
+                key={category.attributes.name}
+                category={category}
+                offers={categoryItems.map((item) => ({
+                  name: item.attributes.name,
+                  description: item.attributes.description,
+                  price: item.attributes.price,
+                }))}
               />
-              <h3 className="font-heading text-lg sm:text-xl lg:text-2xl text-center text-white font-medium">
-                {category.attributes.name}
-              </h3>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     </>

@@ -33,8 +33,6 @@ export function AchievementGallery({ images }: { images: any[] }) {
     });
   }, [api]);
 
-  console.log(images);
-
   return (
     <div className="w-full md:max-w-[472px] flex flex-col items-start justify-start gap-4">
       <Carousel setApi={setApi} className="w-full transition-all">
