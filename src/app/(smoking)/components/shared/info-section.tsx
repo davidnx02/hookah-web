@@ -41,7 +41,7 @@ export function InfoSection({
           <Button
             asChild
             variant={section.button.variant}
-            className="w-full sm:w-fit"
+            className="w-full sm:w-fit relative z-30"
           >
             <Link prefetch={false} href={section.button.url}>
               {section.button.name}
