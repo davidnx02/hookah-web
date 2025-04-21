@@ -14,7 +14,7 @@ export async function Footer() {
     <section
       className={cn(
         "custom-section",
-        "pt-12 bg-[#0A0A0B] border-t border-t-white/10 pb-14 sm:pb-14"
+        "pt-12 bg-[#0A0A0B] border-t border-t-white/10 pb-20 sm:pb-20"
       )}
     >
       {/* <div
