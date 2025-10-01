@@ -21,7 +21,7 @@ export async function Header() {
       </ul>
       <div className='w-full flex sm:hidden items-center justify-between'>
         <MobileSidebar menu={menu} />
-          <Link prefetch={false} href={'https://wa.me/+421919270232'} target="_blank" className="rounded-full w-11 h-11 flex items-center justify-center bg-primary">
+          <Link prefetch={false} href={'https://wa.me/+421919370232'} target="_blank" className="rounded-full w-11 h-11 flex items-center justify-center bg-primary">
             <MdOutlinePhoneInTalk size={20} className="text-white" />
           </Link>
       </div>

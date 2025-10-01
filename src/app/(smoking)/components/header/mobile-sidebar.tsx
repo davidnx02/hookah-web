@@ -46,7 +46,7 @@ export function MobileSidebar({ menu }: { menu: TNavigation }) {
         <SheetClose asChild className="w-full">
           <Link
             prefetch={false}
-            href={"https://wa.me/+421919270232"}
+            href={"https://wa.me/+421919370232"}
             target="_blank"
             className="flex items-center justify-center gap-2 whitespace-nowrap rounded-none text-base transition-colors disabled:pointer-events-none disabled:opacity-50 font-medium h-12 px-6 bg-primary text-white"
           >
