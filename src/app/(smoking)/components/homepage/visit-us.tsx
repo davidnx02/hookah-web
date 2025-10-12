@@ -67,7 +67,7 @@ export function VisitUs({
                     {general.address}
                   </p>
                   <p className="text-[#b9b9b9] text-sm font-normal">
-                    {general.postcode} {general.city}
+                  917 01 {general.city}
                   </p>
                 </div>
               </div>
