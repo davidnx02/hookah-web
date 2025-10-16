@@ -7,6 +7,7 @@ import { MaintenanceScreen } from "./components/maintenance-screen";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 import { InformationBar } from "./components/information-bar";
+import GoogleAnalytics from "./components/google-analytics";
 
 const barlow = Barlow_Condensed({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -59,6 +60,7 @@ export default function RootLayout({
         <InformationBar />
         {children}
         <Footer />
+        <GoogleAnalytics />
       </body>
     </html>
   );
