@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 import { Heading } from "../shared/heading";
 import { HtmlContent } from "../shared/html-content";
 import { Button } from "@/components/ui/button";
-import { getStrapiUrl } from "@/lib/get-strapi-url";
 
 export function CTABanner({ banner }: { banner: TCTABanner }) {
   return (

@@ -74,14 +74,14 @@ export default async function Home() {
           alt="Dym"
           width={0}
           height={0}
-          className="absolute max-w-[1200px] z-0 h-auto w-full -top-[50px] -left-[200px] opacity-65"
-          sizes="1200px"
+          className="absolute max-w-[1200px] z-0 h-auto w-full -top-[50px] -left-[200px] opacity-100 sm:opacity-65"
+          sizes="(max-width: 640px) 100vw, 1200px"
         />
         {infoSections.map((section, index) => (
           <>
             <InfoSection key={section.id} section={section} index={index} />
             {index === 0 && (
-              <div className="custom-container h-[1px] bg-white/20" />
+              <div className="custom-container h-[1px] bg-white/10" />
             )}
           </>
         ))}
@@ -90,8 +90,24 @@ export default async function Home() {
           alt="Dym"
           width={0}
           height={0}
-          className="absolute max-w-[1400px] z-0 h-auto w-full -bottom-[250px] -right-[200px] opacity-65"
-          sizes="1400px"
+          className="absolute max-w-[1400px] z-0 h-auto w-full bottom-[1250px] -right-12 sm:-bottom-[250px] sm:-right-[200px] opacity-100 sm:opacity-65"
+          sizes="(max-width: 640px) 100vw, 1400px"
+        />
+        <Image
+          src={"/smoke.png"}
+          alt="Dym"
+          width={0}
+          height={0}
+          className="absolute max-w-[1200px] z-0 h-auto w-full bottom-[670px] -left-[100px] opacity-80 sm:opacity-65"
+          sizes="(max-width: 640px) 100vw, 1200px"
+        />
+        <Image
+          src={"/smoke.png"}
+          alt="Dym"
+          width={0}
+          height={0}
+          className="absolute max-w-[1400px] z-0 h-auto w-full bottom-[300px] -right-12 sm:-bottom-[250px] sm:-right-[200px] opacity-100 sm:opacity-65"
+          sizes="(max-width: 640px) 100vw, 1400px"
         />
       </section>
       <CTABanner banner={ctaBanner} />

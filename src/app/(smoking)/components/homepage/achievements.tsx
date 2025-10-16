@@ -1,10 +1,11 @@
+import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 import { Heading } from "../shared/heading";
 import { TAchievement } from "@/lib/types";
 import { HtmlContent } from "../shared/html-content";
 import { AchievementAccordion } from "./achievement-accordion";
 import { AchievementGallery } from "./achievement-gallery";
-import Image from "next/image";
 
 export function Achievements({ data }: { data: TAchievement }) {
   return (
@@ -16,7 +17,7 @@ export function Achievements({ data }: { data: TAchievement }) {
         alt="Dym"
         width={0}
         height={0}
-        className="absolute max-w-[1400px] z-0 h-auto w-full -top-[300px] -right-[300px] opacity-60"
+        className="absolute max-w-[1400px] z-0 h-auto w-full -top-10 -right-[100px] sm:-top-[300px] sm:-right-[300px] opacity-100 sm:opacity-60"
         sizes="1400px"
       />
       <div
@@ -40,6 +41,14 @@ export function Achievements({ data }: { data: TAchievement }) {
           <AchievementGallery images={data.images.data} />
         </div>
       </div>
+      <Image
+        src={"/smoke.png"}
+        alt="Dym"
+        width={0}
+        height={0}
+        className="block sm:hidden absolute max-w-[1400px] z-0 h-auto w-[600px] sm:w-full top-[340px] -left-[300px] sm:-top-[300px] sm:-right-[300px] opacity-100 sm:opacity-60"
+        sizes='(max-width: 640px) 100vw, 1400px'
+      />
     </section>
   );
 }

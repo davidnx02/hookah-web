@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
+
+import type { TCategory } from "@/lib/types";
+
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { TCategory } from "@/lib/types";
 import { useMediaQuery } from "@/lib/use-media-query";
 import { cn } from "@/lib/utils";
 
@@ -37,7 +39,7 @@ export function MenuModal({
       <Content
         side={"bottom"}
         className={cn(
-          "p-0 bg-black flex flex-col items-center justify-center w-full border-none overflow-y-scroll max-h-[88vh] md:max-h-[80vh] rounded-none md:max-w-[460px]",
+          "p-0 bg-black flex flex-col border-t-2 border-t-accent sm:border-t-0 items-start justify-start md:items-center md:justify-center w-full border-none overflow-y-scroll max-h-[80vh] md:max-h-[80vh] rounded-none md:max-w-[460px]",
           "course-modal__content",
           "hide-scroll-bar"
         )}
@@ -62,7 +64,7 @@ export function MenuModal({
                     margin: "0 8px",
                   }}
                 />
-                <p className="text-lg sm:text-xl lg:text-2xl font-heading text-white font-normal whitespace-nowrap">
+                <p className="text-lg sm:text-xl lg:text-2xl font-heading text-white font-medium whitespace-nowrap">
                   {offer.price}€
                 </p>
               </div>

@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 
 import { MenuItem } from "./menu-item";
 import { MobileSidebar } from "./mobile-sidebar";
-import { Button } from "@/components/ui/button";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { FaInstagram } from "react-icons/fa";
 

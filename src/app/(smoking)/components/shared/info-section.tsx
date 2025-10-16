@@ -26,7 +26,7 @@ export function InfoSection({
     <div
       className={cn(
         "custom-container",
-        "flex flex-col items-start justify-start md:items-center md:justify-between gap-12 lg:gap-16",
+        "flex flex-col items-start justify-start md:items-center md:justify-between gap-12 lg:gap-16 relative z-10",
         index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse",
         className?.container,
       )}

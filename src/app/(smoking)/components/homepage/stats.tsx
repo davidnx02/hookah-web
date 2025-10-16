@@ -5,15 +5,13 @@ import { cn } from "@/lib/utils";
 
 export async function Stats({ stats }: { stats: TStat[] }) {
   return (
-    <section
-      className={cn("custom-section", "pb-4 pt-8 sm:pb-16 relative")}
-    >
+    <section className={cn("custom-section", "pb-4 pt-8 sm:pb-16 relative")}>
       <Image
         src={"/smoke.png"}
         alt="Dym"
         width={0}
         height={0}
-        className="absolute max-w-[1400px] z-0 h-auto w-full scale-x-[-1] -top-[50px] -left-[300px] opacity-65"
+        className="absolute max-w-[1400px] z-0 h-auto w-[800px] -top-40 sm:w-full scale-x-[-1] sm:-top-[50px] sm:-left-[300px] opacity-40 sm:opacity-65"
         sizes="1400px"
       />
       <div
@@ -34,6 +32,14 @@ export async function Stats({ stats }: { stats: TStat[] }) {
           </div>
         ))}
       </div>
+      <Image
+        src={"/smoke.png"}
+        alt="Dym"
+        width={0}
+        height={0}
+        className="block sm:hidden absolute max-w-[1400px] z-0 h-auto w-[1000px] top-[600px] left-[25%] sm:w-full scale-x-[-1] sm:-top-[50px] sm:-left-[300px] opacity-80 sm:opacity-65"
+        sizes="1400px"
+      />
     </section>
   );
 }
