@@ -36,20 +36,12 @@ export function CourseModal({ courses }: { courses: TCourse[] }) {
           <Content
             side={"bottom"}
             className={cn(
-              "p-0 bg-black flex flex-col items-start justify-start md:max-w-[800px] border-none overflow-y-scroll max-h-[90vh] md:max-h-[80vh] rounded-none",
+              "p-0 bg-[#151515] flex flex-col items-start justify-start md:max-w-[800px] border-none overflow-y-scroll max-h-[90vh] md:max-h-[80vh] rounded-none",
               "course-modal__content",
               "hide-scroll-bar"
             )}
           >
-            <Image
-              src={course.image.data.attributes.url}
-              alt={course.name}
-              width={0}
-              height={0}
-              className="w-full h-[220px] sm:h-[280px] object-cover object-center"
-              sizes="600px"
-            />
-            <div className="w-full flex flex-col items-start justify-start gap-8 px-6 py-8">
+            <div className="w-full flex flex-col items-start justify-start gap-8 px-6 py-8 sm:py-10 sm:px-12">
               <div className="w-full flex flex-col items-start justify-start sm:flex-row  sm:items-center sm:justify-between gap-2 sm:gap-4">
                 <h4 className="text-4xl font-medium uppercase text-white font-heading">
                   {course.name}
