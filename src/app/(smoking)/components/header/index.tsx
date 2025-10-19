@@ -29,7 +29,7 @@ export async function Header() {
         <div className="flex items-center justify-end gap-4">
           <Link
             prefetch={false}
-            href={"https://wa.me/+421919370232"}
+            href={"tel:+421919370232"}
             target="_blank"
             className="rounded-full w-11 h-11 flex items-center justify-center bg-primary"
           >
