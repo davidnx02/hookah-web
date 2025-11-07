@@ -56,9 +56,9 @@ export function VisitUs({
                 icon={<TbMapPinDown className="w-6 h-6 text-white" />}
               />
               <div className="flex flex-col items-start justify-start gap-4">
-                <h5 className="text-xl sm:text-2xl font-medium text-white font-heading">
+                <p className="text-xl sm:text-2xl font-medium text-white font-heading">
                   ADRESA
-                </h5>
+                </p>
                 <div className="w-full flex flex-col items-start justify-start gap-1">
                   <p className="text-[#b9b9b9] text-sm font-normal">
                     Smoking Hookah
@@ -77,9 +77,9 @@ export function VisitUs({
                 icon={<TbPhoneCall className="w-6 h-6 text-white" />}
               />
               <div className="flex flex-col items-start justify-start gap-4">
-                <h5 className="text-xl sm:text-2xl font-medium text-white font-heading">
+                <p className="text-xl sm:text-2xl font-medium text-white font-heading">
                   KONTAKT
-                </h5>
+                </p>
                 <div className="w-full flex flex-col items-start justify-start gap-1">
                   <p className="text-[#b9b9b9] text-sm font-normal">
                     +421 919 370 232
@@ -109,9 +109,9 @@ export function VisitUs({
                 icon={<TbClockCheck className="w-6 h-6 text-white" />}
               />
               <div className="w-full flex flex-col items-start justify-start gap-4">
-                <h5 className="text-xl sm:text-2xl font-medium text-white font-heading">
+                <p className="text-xl sm:text-2xl font-medium text-white font-heading">
                   OTVÁRACIE HODINY
-                </h5>
+                </p>
                 <div className="w-full flex flex-col items-start justify-start gap-2">
                   <div className="w-full flex items-center justify-between gap-4">
                     <p className="text-sm text-[#b9b9b9] whitespace-nowrap shrink-0">

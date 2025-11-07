@@ -61,6 +61,7 @@ export default async function Home() {
 
   return (
     <>
+    
       <Hero general={general} hero={hero} />
       <section
         className={cn(
